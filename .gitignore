@@ -1,0 +1,11 @@
+# artifacts
+.next
+
+# npm
+node_modules
+
+# secret
+.env
+.env.local
+.env.development
+.env.production
