@@ -1,0 +1,69 @@
+.component {
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+  padding: 0 !important;
+  max-width: 50rem;
+}
+
+.imageWrapper {
+  margin: -3rem 0 0 1rem;
+  padding: 1rem;
+  border-radius: 50%;
+  width: 10rem;
+  height: 10rem;
+
+  border: 1px solid var(--box-border-color);
+  box-shadow: var(--shadow-inset);
+  background-color: var(--bg-color);
+
+  img {
+    width: 100%;
+    height: 100%;
+
+    border: 1px solid var(--box-border-color);
+    border-radius: 50%;
+    box-shadow: var(--shadow);
+  }
+}
+
+.content {
+  padding: 1.5rem;
+  display: flex;
+  justify-content: space-between;
+}
+
+.name,
+.job {
+  margin: 0 0 1rem;
+}
+
+.name {
+  font-size: 2rem;
+}
+
+.job {
+  font-size: 1.25rem;
+  color: gray;
+}
+
+.bio {
+  margin-left: 2rem;
+  line-height: 1.6;
+  font-weight: 300;
+}
+
+@media screen and (max-width: 480px) {
+  .content {
+    flex-direction: column;
+  }
+
+  .name,
+  .job {
+    text-align: center;
+  }
+
+  .bio {
+    margin-left: 0;
+  }
+}

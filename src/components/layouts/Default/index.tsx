@@ -4,15 +4,21 @@ import Header from '~/components/organisms/Header'
 import styles from './styles.module.scss'
 import Footer from '~/components/organisms/Footer'
 
-const Layout: React.FC = (props) => (
-  <>
-    <Head>
-      <title>yKicchan</title>
-    </Head>
-    <Header />
-    <main className={styles.content}>{props.children}</main>
-    <Footer />
-  </>
-)
+interface P {
+  className?: string
+}
 
+const Layout: React.FC<P> = ({ children, className }) => {
+  const style = className || ''
+  return (
+    <>
+      <Head>
+        <title>yKicchan</title>
+      </Head>
+      <Header />
+      <main className={`${styles.content} ${style}`}>{children}</main>
+      <Footer />
+    </>
+  )
+}
 export default Layout
