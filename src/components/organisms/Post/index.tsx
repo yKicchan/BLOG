@@ -1,6 +1,6 @@
 import React from 'react'
 import Head from 'next/head'
-import Layout from '~/layouts/Default'
+import Layout from '~/components/layouts/Default'
 import styles from './styles.module.scss'
 import { Metadata } from '*.mdx'
 import Header from './Header'

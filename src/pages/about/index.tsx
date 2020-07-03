@@ -1,8 +1,8 @@
 import { NextPage } from 'next'
 import React from 'react'
-import Card from '~/components/Card'
+import Card from '~/components/atoms/Card'
 
-import Layout from '~/layouts/Default'
+import Layout from '~/components/layouts/Default'
 
 const Page: NextPage = () => {
   return (

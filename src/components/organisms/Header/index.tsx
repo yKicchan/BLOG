@@ -1,7 +1,7 @@
 import React from 'react'
 import styles from './styles.module.scss'
 import Link from 'next/link'
-import Icon from '../Icon'
+import Icon from '../../atoms/Icon'
 
 const Header: React.FC = () => {
   return (

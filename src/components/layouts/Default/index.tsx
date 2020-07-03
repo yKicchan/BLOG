@@ -1,8 +1,8 @@
 import React from 'react'
 import Head from 'next/head'
-import Header from '~/components/Header'
+import Header from '~/components/organisms/Header'
 import styles from './styles.module.scss'
-import Footer from '~/components/Footer'
+import Footer from '~/components/organisms/Footer'
 
 const Layout: React.FC = (props) => (
   <>

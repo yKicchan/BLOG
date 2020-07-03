@@ -1,7 +1,7 @@
 import { NextPage } from 'next'
 import Link from 'next/link'
 import React from 'react'
-import Layout from '~/layouts/Default'
+import Layout from '~/components/layouts/Default'
 import { Metadata } from '*.mdx'
 import { getAllMetadata } from '~/utils/meta'
 

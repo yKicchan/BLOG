@@ -1,8 +1,8 @@
 import React from 'react'
 import { Metadata } from '*.mdx'
 import styles from './styles.module.scss'
-import Card from '~/components/Card'
-import Tag from '~/components/Tag'
+import Card from '~/components/atoms/Card'
+import Tag from '~/components/atoms/Tag'
 
 interface P {
   meta: Metadata
