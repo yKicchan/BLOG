@@ -10,8 +10,8 @@ const Profile: React.FC = () => {
       </figure>
       <main className={styles.content}>
         <div>
-          <h1 className={styles.name}>yKicchan</h1>
-          <h2 className={styles.job}>Web engineer</h2>
+          <h3 className={styles.name}>yKicchan</h3>
+          <h4 className={styles.job}>Web engineer</h4>
         </div>
         <p className={styles.bio}>
           主な生息地は大阪。
