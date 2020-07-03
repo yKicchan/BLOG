@@ -1,7 +1,11 @@
 .component {
   display: flex;
   align-items: center;
+
+  margin: 0 auto;
   padding: 2vh 5vw;
+  width: 100%;
+  max-width: 1440px;
 }
 
 .links {

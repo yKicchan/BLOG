@@ -17,10 +17,8 @@ body {
 }
 
 #__next {
-  margin: 0 auto;
   height: 100vh;
   width: 100vw;
-  max-width: 1440px;
 
   display: flex;
   flex-direction: column;
