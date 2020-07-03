@@ -1,6 +1,6 @@
 .component {
-  box-shadow: var(--shadow);
+  padding: 1.4rem;
   border: 1px solid var(--box-border-color);
   border-radius: 5px;
-  transition: all .3s ease-in-out;
+  box-shadow: var(--shadow);
 }
