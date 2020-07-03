@@ -1,0 +1,31 @@
+.component {
+  margin: 5vh 4vw 2vh;
+  text-align: center;
+}
+
+.time {
+  font-size: .9rem;
+}
+
+.note {
+  font-size: .8em;
+  color: gray;
+  padding-left: .5rem;
+
+  &::before {
+    content: '(';
+    padding-right: 1px;
+  }
+
+  &::after {
+    content: ')';
+    padding-left: 1px;
+  }
+}
+
+.tags {
+  margin: 4vh 0 -1vh;
+  display: flex;
+  justify-content: flex-end;
+  flex-wrap: wrap;
+}
