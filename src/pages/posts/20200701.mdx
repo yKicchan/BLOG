@@ -1,14 +1,14 @@
 import Post from '~/components/Post'
 
-export const metadata = {
+export const meta = {
   title: 'Markdown display test',
   excerpt: 'a b c 1 2 3',
   createdAt: '2020/1/1',
+  updatedAt: '2020/2/1',
+  tags: ['React', 'Next.js', 'TypeScript', 'MDX', 'AWS'],
 }
 
-export default ({ children }) => <Post metadata={metadata}>{children}</Post>
-
-# Markdown display test
+export default ({ children }) => <Post meta={meta}>{children}</Post>
 
 ## h2
 

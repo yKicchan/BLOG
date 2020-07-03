@@ -45,6 +45,7 @@ declare module '*.mdx' {
     excerpt: string
     createdAt: string
     updatedAt?: string
+    tags: string[]
     path: string
   }
 

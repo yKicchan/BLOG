@@ -7,11 +7,11 @@ export async function getAllMetadata(): Promise<Metadata[]> {
   const mdxDocs = Promise.all(
     files.map((file) => import('~/pages/posts/' + file))
   )
-  const metadataList = (await mdxDocs).map((mdx, i) => ({
-    ...mdx.metadata,
+  const metaList = (await mdxDocs).map((mdx, i) => ({
+    ...mdx.meta,
     path: `/posts/${subExt(files[i])}`,
   }))
-  return metadataList
+  return metaList
 }
 
 function subExt(file: string) {

@@ -5,13 +5,13 @@ import styles from './styles.module.scss'
 import { Metadata } from '*.mdx'
 
 interface P {
-  metadata: Metadata
+  meta: Metadata
 }
 
-const Post: React.FC<P> = ({ metadata, children }) => (
+const Post: React.FC<P> = ({ meta, children }) => (
   <Layout>
     <Head>
-      <title>{metadata.title}</title>
+      <title>{meta.title}</title>
     </Head>
     <main className={styles.main}>{children}</main>
   </Layout>
