@@ -1,5 +1,6 @@
 # artifacts
 .next
+out
 
 # npm
 node_modules

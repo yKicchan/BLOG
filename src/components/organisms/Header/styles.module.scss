@@ -1,0 +1,38 @@
+.component {
+  display: flex;
+  align-items: center;
+
+  margin: 0 auto;
+  padding: 2vh 5vw;
+  width: 100%;
+  max-width: 1440px;
+}
+
+.links {
+  display: flex;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+
+  li+li {
+    margin-left: 16px;
+  }
+
+  a,
+  a:visited {
+    color: var(--color);
+    text-decoration: none;
+    font-weight: bold;
+  }
+}
+
+.icons {
+  margin-left: auto;
+}
+
+.hr {
+  margin: 0 0 1vh;
+  border: none;
+  border-bottom: 1px solid var(--separator-color);
+  width: 100vw;
+}

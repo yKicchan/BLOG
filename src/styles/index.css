@@ -1,5 +1,35 @@
-@import "tailwindcss/base";
+@import '~normalize.css';
+@import 'variables.css';
+@import 'post.css';
 
-@import "tailwindcss/components";
+* {
+  box-sizing: border-box;
+}
 
-@import "tailwindcss/utilities";
+body {
+  display: flex;
+  height: 100vh;
+  width: 100vw;
+  margin: 0;
+  color: var(--color);
+  background-color: var(--bg-color);
+  transition: box-shadow 0.3s ease-in-out;
+  font-family: 'Noto Sans JP', sans-serif;
+}
+
+#__next {
+  height: 100vh;
+  width: 100vw;
+
+  display: flex;
+  flex-direction: column;
+}
+
+
+a {
+  color: #FF6666;
+}
+
+a:visited {
+  color: #CC7777;
+}

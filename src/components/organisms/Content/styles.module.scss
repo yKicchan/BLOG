@@ -1,0 +1,29 @@
+.main {
+  margin-top: 64px;
+
+  h1,
+  h2 {
+    padding-bottom: 8px;
+    border-bottom: 2px solid var(--separator-color);
+  }
+
+  summary {
+    cursor: pointer;
+    outline: none;
+  }
+
+  blockquote {
+    margin-left: 20px;
+    padding-left: 20px;
+    border-left: 3px solid gray;
+
+    >p {
+      opacity: 0.7;
+    }
+  }
+
+  pre {
+    border: 1px solid var(--separator-color);
+    border-radius: 4px;
+  }
+}

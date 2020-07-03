@@ -1,0 +1,30 @@
+.component {
+  text-align: center;
+}
+
+.time {
+  font-size: .9rem;
+}
+
+.note {
+  font-size: .8em;
+  color: gray;
+  padding-left: .5rem;
+
+  &::before {
+    content: '(';
+    padding-right: 1px;
+  }
+
+  &::after {
+    content: ')';
+    padding-left: 1px;
+  }
+}
+
+.tags {
+  margin: 4vh 0 -2vh;
+  display: flex;
+  justify-content: flex-end;
+  flex-wrap: wrap;
+}

@@ -1,0 +1,12 @@
+.component {
+  margin-bottom: 8px;
+  padding: .5rem;
+  border-radius: 3px;
+  box-shadow: var(--shadow-inset);
+  color: gray;
+  font-size: .75rem;
+
+  +.component {
+    margin-left: 8px;
+  }
+}

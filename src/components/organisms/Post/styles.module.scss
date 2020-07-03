@@ -1,0 +1,36 @@
+.component {
+  h2 {
+    margin: 0 0 .8rem;
+  }
+
+  time {
+    display: flex;
+    align-items: center;
+    font-size: .8rem;
+    color: gray;
+  }
+
+  p {
+    margin: 1rem 0;
+  }
+}
+
+.link,
+.link:visited {
+  color: var(--color);
+  text-decoration: none;
+}
+
+.tags {
+  display: flex;
+  justify-content: flex-end;
+  flex-wrap: wrap;
+  margin-bottom: -1rem;
+}
+
+.iconWrapper {
+  margin-right: 2px;
+  display: inline-block;
+  width: 1em;
+  height: 1em;
+}
