@@ -1,0 +1,11 @@
+.component {
+  margin-bottom: 8px;
+  padding: .5rem;
+  border-radius: 3px;
+  box-shadow: var(--shadow-inset);
+  font-size: .8rem;
+
+  +.component {
+    margin-left: 8px;
+  }
+}
