@@ -1,29 +1,42 @@
-.main {
-  margin-top: 64px;
+.component {
+  padding: 3vh 3vw;
+  border: 1px solid var(--box-border-color);
+  border-radius: 3px;
 
-  h1,
+  box-shadow: var(--shadow);
+
   h2 {
-    padding-bottom: 8px;
-    border-bottom: 2px solid var(--separator-color);
+    margin: 0 0 .8rem;
   }
 
-  summary {
-    cursor: pointer;
-    outline: none;
+  time {
+    display: flex;
+    align-items: center;
+    font-size: .8rem;
+    color: gray;
   }
 
-  blockquote {
-    margin-left: 20px;
-    padding-left: 20px;
-    border-left: 3px solid gray;
-
-    >p {
-      opacity: 0.7;
-    }
+  p {
+    margin: 1rem 0;
   }
+}
 
-  pre {
-    border: 1px solid var(--separator-color);
-    border-radius: 4px;
-  }
+.link,
+.link:visited {
+  color: var(--color);
+  text-decoration: none;
+}
+
+.tags {
+  display: flex;
+  justify-content: flex-end;
+  flex-wrap: wrap;
+  margin-bottom: -1rem;
+}
+
+.iconWrapper {
+  margin-right: 2px;
+  display: inline-block;
+  width: 1em;
+  height: 1em;
 }

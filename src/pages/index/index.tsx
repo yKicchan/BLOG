@@ -1,9 +1,10 @@
 import { NextPage } from 'next'
-import Link from 'next/link'
 import React from 'react'
 import Layout from '~/components/layouts/Default'
 import { Metadata } from '*.mdx'
 import { getAllMetadata } from '~/utils/meta'
+import Post from '~/components/organisms/Post'
+import styles from './styles.module.scss'
 
 interface P {
   metadataList: Metadata[]
@@ -12,18 +13,10 @@ interface P {
 const Page: NextPage<P> = ({ metadataList }) => {
   return (
     <Layout>
-      <h1>Hello world!!</h1>
-      <ul>
-        <li>
-          <Link href="/about">
-            <a>About</a>
-          </Link>
-        </li>
+      <ul className={styles.posts}>
         {metadataList.map((meta) => (
           <li key={meta.path}>
-            <Link href={meta.path}>
-              <a>{meta.title}</a>
-            </Link>
+            <Post meta={meta} />
           </li>
         ))}
       </ul>

@@ -1,22 +1,36 @@
 import React from 'react'
-import Head from 'next/head'
-import Layout from '~/components/layouts/Default'
+import Link from 'next/link'
 import styles from './styles.module.scss'
 import { Metadata } from '*.mdx'
-import Header from './Header'
+import Tag from '~/components/atoms/Tag'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 interface P {
   meta: Metadata
 }
 
-const Post: React.FC<P> = ({ meta, children }) => (
-  <Layout>
-    <Head>
-      <title>{meta.title}</title>
-    </Head>
-    <Header meta={meta} />
-    <main className={styles.main}>{children}</main>
-  </Layout>
-)
+const Post: React.FC<P> = ({ meta }) => {
+  return (
+    <Link href={meta.path}>
+      <a className={styles.link}>
+        <article className={styles.component}>
+          <h2>{meta.title}</h2>
+          <time dateTime={meta.createdAt}>
+            <span className={styles.iconWrapper}>
+              <FontAwesomeIcon icon={['far', 'clock']} />
+            </span>
+            {meta.createdAt}
+          </time>
+          <p>{meta.excerpt}</p>
+          <div className={styles.tags}>
+            {meta.tags.map((tag) => (
+              <Tag key={tag}>{tag}</Tag>
+            ))}
+          </div>
+        </article>
+      </a>
+    </Link>
+  )
+}
 
 export default Post
