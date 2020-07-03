@@ -12,6 +12,15 @@ body {
   transition: box-shadow 0.3s ease-in-out;
 }
 
+html {
+  display: flex;
+  justify-content: center;
+}
+
+body {
+  max-width: 1440px;
+}
+
 a {
   color: #FF6666;
 }
