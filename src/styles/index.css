@@ -14,6 +14,7 @@ body {
   color: var(--color);
   background-color: var(--bg-color);
   transition: box-shadow 0.3s ease-in-out;
+  font-family: 'Noto Sans JP', sans-serif;
 }
 
 #__next {

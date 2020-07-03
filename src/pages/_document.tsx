@@ -10,6 +10,10 @@ export default class MyDocument extends Document {
             href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.9.0/themes/prism-tomorrow.min.css"
             rel="stylesheet"
           />
+          <link
+            href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&display=swap"
+            rel="stylesheet"
+          ></link>
         </Head>
         <body>
           <Main />
