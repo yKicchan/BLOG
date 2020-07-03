@@ -1,12 +1,13 @@
 import { NextPage } from 'next'
 import React from 'react'
-
+import styles from './styles.module.scss'
 import Layout from '~/components/layouts/Default'
+import Profile from '~/components/organisms/Profile'
 
 const Page: NextPage = () => {
   return (
-    <Layout>
-      <h1>準備中...!!</h1>
+    <Layout className={styles.component}>
+      <Profile />
     </Layout>
   )
 }
