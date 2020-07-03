@@ -1,0 +1,24 @@
+.component {
+  position: relative;
+  display: inline-block;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  box-shadow: var(--shadow);
+  border: 1px solid var(--separator-color);
+
+  +.component {
+    margin-left: 8px;
+  }
+}
+
+.iconWrapper {
+  display: inline-block;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 16px;
+  height: 16px;
+  color: var(--color);
+}
