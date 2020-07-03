@@ -7,7 +7,7 @@ import Layout from '~/layouts/Default'
 const Page: NextPage = () => {
   return (
     <Layout>
-      <Card />
+      <Card>About</Card>
     </Layout>
   )
 }

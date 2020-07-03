@@ -1,14 +1,8 @@
 import React from 'react'
 import styles from './styles.module.scss'
 
-const Card: React.FC = () => {
-  return (
-    <div className={styles.container}>
-      <header className={styles.header}>Header</header>
-      <main className={styles.content}>Content</main>
-      <footer className={styles.footer}>Footer</footer>
-    </div>
-  )
+const Card: React.FC = ({ children }) => {
+  return <div className={styles.component}>{children}</div>
 }
 
 export default Card

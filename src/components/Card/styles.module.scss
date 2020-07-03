@@ -1,15 +1,6 @@
-.container {
+.component {
   box-shadow: var(--shadow);
   border: 1px solid var(--box-border-color);
   border-radius: 5px;
   transition: all .3s ease-in-out;
 }
-
-.content {
-  padding: 1.5rem;
-}
-
-.header, .footer {
-  padding: 1.25rem 1.5rem;
-}
-
