@@ -1,12 +1,13 @@
 .component {
   display: inline-flex;
-  justify-content: center;
   align-items: center;
-
   padding: 1rem !important;
+  width: 11rem;
 
   dd {
     margin-left: 8px;
+    display: block;
+    flex: 1 0 auto;
   }
 }
 
