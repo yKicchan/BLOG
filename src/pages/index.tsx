@@ -2,10 +2,14 @@ import { NextPage } from 'next'
 import Link from 'next/link'
 import React from 'react'
 import Layout from '~/layouts/Default'
-import fs from 'fs'
 import { Metadata } from '*.mdx'
+import { getAllMetadata } from '~/utils/meta'
 
-const Page: NextPage<{ metadataList: Metadata[] }> = ({ metadataList }) => {
+interface P {
+  metadataList: Metadata[]
+}
+
+const Page: NextPage<P> = ({ metadataList }) => {
   return (
     <Layout>
       <h1>Hello world!!</h1>
@@ -28,14 +32,7 @@ const Page: NextPage<{ metadataList: Metadata[] }> = ({ metadataList }) => {
 }
 
 export async function getStaticProps() {
-  const dir = '/src/pages/posts/'
-  const files = fs.readdirSync(process.cwd() + dir)
-  const mdxDocs = Promise.all(files.map((file) => import('./posts/' + file)))
-  const metadataList = (await mdxDocs).map((mdx, i) => ({
-    ...mdx.metadata,
-    path: `/posts/${files[i].substring(0, files[i].indexOf('.'))}`,
-  }))
-
+  const metadataList = await getAllMetadata()
   return {
     props: {
       metadataList,
