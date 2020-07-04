@@ -14,22 +14,20 @@ const Post: React.FC<P> = ({ meta }) => {
   return (
     <Link href={meta.path}>
       <a className={styles.link}>
-        <Card>
-          <article className={styles.component}>
-            <h2>{meta.title}</h2>
-            <time dateTime={meta.createdAt}>
-              <span className={styles.iconWrapper}>
-                <FontAwesomeIcon icon={['far', 'clock']} />
-              </span>
-              {meta.createdAt}
-            </time>
-            <p>{meta.excerpt}</p>
-            <div className={styles.tags}>
-              {meta.tags.map((tag) => (
-                <Tag key={tag}>{tag}</Tag>
-              ))}
-            </div>
-          </article>
+        <Card tag="article" className={styles.component}>
+          <h2 className={styles.title}>{meta.title}</h2>
+          <time dateTime={meta.createdAt}>
+            <span className={styles.iconWrapper}>
+              <FontAwesomeIcon icon={['far', 'clock']} />
+            </span>
+            {meta.createdAt}
+          </time>
+          <p>{meta.excerpt}</p>
+          <div className={styles.tags}>
+            {meta.tags.map((tag) => (
+              <Tag key={tag}>{tag}</Tag>
+            ))}
+          </div>
         </Card>
       </a>
     </Link>
