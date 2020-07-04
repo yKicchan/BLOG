@@ -9,7 +9,7 @@ interface P {
   meta: Metadata
 }
 
-const Post: React.FC<P> = ({ meta, children }) => (
+const Content: React.FC<P> = ({ meta, children }) => (
   <Layout>
     <Head>
       <title>{meta.title}</title>
@@ -32,4 +32,4 @@ const Post: React.FC<P> = ({ meta, children }) => (
   </Layout>
 )
 
-export default Post
+export default Content
