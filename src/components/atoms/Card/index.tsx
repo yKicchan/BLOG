@@ -3,7 +3,7 @@ import styles from './styles.module.scss'
 
 interface P {
   className?: string
-  tag?: 'dl'
+  tag?: 'dl' | 'header'
 }
 
 const Card: React.FC<P> = ({ children, className, tag }) => {
