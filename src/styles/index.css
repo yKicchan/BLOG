@@ -1,6 +1,7 @@
 @import '~normalize.css';
 @import 'variables.css';
 @import 'font.css';
+@import 'prism.css';
 @import 'post.css';
 
 * {
