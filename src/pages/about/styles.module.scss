@@ -6,19 +6,19 @@
 }
 
 .profileTitle {
-  margin: 2rem auto 6rem;
+  margin: 3rem auto 6rem;
 }
 
 .skillsTitle {
-  margin: 8rem auto 2rem;
+  margin: 12rem auto 3rem;
 }
 
 .skills {
-  margin: 0 auto 2rem;
+  margin: 0 auto 10rem;
   max-width: 50rem;
   text-align: center;
 
-  >div {
+  >dl {
     margin: 1rem;
   }
 }

@@ -9,7 +9,7 @@ interface P {
 
 const SkillCard: React.FC<P> = ({ src, alt }) => {
   return (
-    <Card className={styles.component}>
+    <Card className={styles.component} tag="dl">
       <dt>
         <img className={styles.img} src={src} alt={alt} />
       </dt>

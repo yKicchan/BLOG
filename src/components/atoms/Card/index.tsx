@@ -3,11 +3,15 @@ import styles from './styles.module.scss'
 
 interface P {
   className?: string
+  tag?: 'dl'
 }
 
-const Card: React.FC<P> = ({ children, className }) => {
+const Card: React.FC<P> = ({ children, className, tag }) => {
   const style = className || ''
-  return <div className={`${styles.component} ${style}`}>{children}</div>
+  const Component = tag || 'div'
+  return (
+    <Component className={`${styles.component} ${style}`}>{children}</Component>
+  )
 }
 
 export default Card

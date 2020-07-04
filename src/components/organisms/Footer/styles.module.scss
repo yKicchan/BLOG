@@ -1,6 +1,6 @@
 .component {
   margin-top: auto;
-  padding: 2vh 2vw;
+  padding: 2rem;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -10,4 +10,5 @@
 
 .copy {
   font-size: .8rem;
+  color: gray;
 }
