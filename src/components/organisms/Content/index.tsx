@@ -13,6 +13,7 @@ const Post: React.FC<P> = ({ meta, children }) => (
   <Layout>
     <Head>
       <title>{meta.title}</title>
+      <script src="https://platform.twitter.com/widgets.js"></script>
     </Head>
     <Header meta={meta} />
     <main className={styles.main}>{children}</main>
@@ -27,7 +28,6 @@ const Post: React.FC<P> = ({ meta, children }) => (
       >
         Tweet
       </a>
-      <script async src="https://platform.twitter.com/widgets.js"></script>
     </footer>
   </Layout>
 )
