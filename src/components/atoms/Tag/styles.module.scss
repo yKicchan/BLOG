@@ -1,12 +1,15 @@
+@import 'src/styles/mixins';
+
 .component {
-  margin-bottom: 8px;
+  @include NeumoBoxInset();
+
+  margin-bottom: .5rem;
   padding: .5rem;
   border-radius: 3px;
-  box-shadow: var(--shadow-inset);
-  color: gray;
+  color: var(--gray);
   font-size: .75rem;
 
   +.component {
-    margin-left: 8px;
+    margin-left: .5rem;
   }
 }

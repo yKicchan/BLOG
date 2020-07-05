@@ -1,6 +1,8 @@
 {
   "cSpell.words": [
-    "Laravel"
+    "yKicchan's",
+    "Laravel",
+    "mixins"
   ],
   "editor.codeActionsOnSave": {
     "source.fixAll.eslint": true

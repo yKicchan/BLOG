@@ -21,8 +21,16 @@ const Header: React.FC = () => {
         </ul>
       </nav>
       <div className={styles.icons}>
-        <Icon icon={['fab', 'twitter']} href="https://twitter.com/yKicchan" />
-        <Icon icon={['fab', 'github']} href="https://github.com/yKicchan" />
+        <Icon
+          label="Twitter"
+          icon={['fab', 'twitter']}
+          href="https://twitter.com/yKicchan"
+        />
+        <Icon
+          label="GitHub"
+          icon={['fab', 'github']}
+          href="https://github.com/yKicchan"
+        />
       </div>
     </header>
   )
