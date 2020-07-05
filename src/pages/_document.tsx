@@ -7,6 +7,12 @@ export default class MyDocument extends Document {
       <Html lang="ja">
         <Head>
           <link
+            rel="apple-touch-icon"
+            type="image/png"
+            href="/icons/apple-touch-icon-180x180.png"
+          />
+          <link rel="icon" type="image/png" href="/icons/icon-192x192.png" />
+          <link
             rel="preload"
             href="/fonts/NotoSansJP-Bold.otf"
             as="font"
