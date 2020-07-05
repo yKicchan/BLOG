@@ -6,10 +6,16 @@ const withMDX = require('@next/mdx')({
     rehypePlugins: [rehypePrism],
   },
 })
+const withPWA = require('next-pwa')
 
-module.exports = withMDX({
-  pageExtensions: ['tsx', 'mdx'],
-  sassOptions: {
-    includePaths: [path.join(__dirname, 'styles')],
-  },
-})
+module.exports = withPWA(
+  withMDX({
+    pageExtensions: ['tsx', 'mdx'],
+    sassOptions: {
+      includePaths: [path.join(__dirname, 'styles')],
+    },
+    pwa: {
+      dest: 'public',
+    },
+  })
+)

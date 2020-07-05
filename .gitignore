@@ -1,6 +1,8 @@
 # artifacts
 .next
 out
+public/sw.js
+public/workbox-*
 
 # npm
 node_modules
