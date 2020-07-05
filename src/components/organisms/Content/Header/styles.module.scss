@@ -8,7 +8,7 @@
 
 .note {
   font-size: .8em;
-  color: gray;
+  color: var(--gray);
   padding-left: .5rem;
 
   &::before {

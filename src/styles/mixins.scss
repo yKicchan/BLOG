@@ -1,0 +1,9 @@
+@mixin NeumoBox() {
+  border: 1px solid var(--box-border-color);
+  box-shadow: var(--shadow);
+}
+
+@mixin NeumoBoxInset() {
+  border: 1px solid var(--box-border-color);
+  box-shadow: var(--shadow-inset);
+}
