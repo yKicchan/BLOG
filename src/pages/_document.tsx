@@ -6,6 +6,8 @@ export default class MyDocument extends Document {
     return (
       <Html lang="ja">
         <Head>
+          <meta charSet="utf-8" />
+          <link rel="manifest" href="/manifest.json" />
           <link
             rel="apple-touch-icon"
             type="image/png"
