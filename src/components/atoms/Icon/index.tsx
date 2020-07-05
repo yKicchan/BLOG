@@ -6,11 +6,12 @@ import { IconProp } from '@fortawesome/fontawesome-svg-core'
 interface P {
   href: string
   icon: IconProp
+  label: string
 }
 
-const Icon: React.FC<P> = ({ icon, href }) => {
+const Icon: React.FC<P> = ({ icon, href, label }) => {
   return (
-    <a href={href} className={styles.component}>
+    <a aria-label={label} href={href} className={styles.component}>
       <span className={styles.iconWrapper}>
         <FontAwesomeIcon icon={icon} />
       </span>

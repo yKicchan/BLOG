@@ -13,7 +13,7 @@ interface P {
 const Post: React.FC<P> = ({ meta }) => {
   return (
     <Link href={meta.path}>
-      <a className={styles.link}>
+      <a className={styles.link} aria-label={meta.title}>
         <Card tag="article" className={styles.component}>
           <h2 className={styles.title}>{meta.title}</h2>
           <time dateTime={meta.createdAt}>

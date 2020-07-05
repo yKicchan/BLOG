@@ -12,9 +12,6 @@ const Layout: React.FC<P> = ({ children, className }) => {
   const style = className || ''
   return (
     <>
-      <Head>
-        <title>yKicchan</title>
-      </Head>
       <Header />
       <main className={`${styles.content} ${style}`}>{children}</main>
       <Footer />
