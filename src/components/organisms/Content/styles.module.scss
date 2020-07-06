@@ -41,7 +41,9 @@
   }
 
   details {
-
+    +details {
+      margin-top: 1rem;
+    }
 
     >summary {
       display: inline-block;
