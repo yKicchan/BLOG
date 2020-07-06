@@ -21,7 +21,18 @@
     margin: 2.25rem 0;
     font-weight: 300;
 
-    >code {}
+    >code {
+      padding: .05rem .5rem .1rem;
+      border-radius: 3px;
+      background-color: #2d2d2d;
+      color: orange
+    }
+
+    @media (prefers-color-scheme: dark) {
+      >code {
+        border: 1px solid var(--separator-color)
+      }
+    }
   }
 
   ol,
