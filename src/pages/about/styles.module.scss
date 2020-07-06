@@ -1,20 +1,17 @@
-.profileTitle,
-.skillsTitle {
+.profileTitle {
+  margin: 0 auto 6rem;
   padding-bottom: 1rem;
   border-bottom: 2px solid var(--separator-color);
   max-width: 50rem;
 }
 
-.profileTitle {
-  margin: 8rem auto 6rem;
-}
-
 .skillsTitle {
-  margin: 14rem auto 3rem;
+  margin: 6rem auto 2rem;
+  max-width: 50rem;
 }
 
 .skills {
-  margin: 0 auto 8rem;
+  margin: 0 auto 4rem;
   max-width: 50rem;
   text-align: center;
 

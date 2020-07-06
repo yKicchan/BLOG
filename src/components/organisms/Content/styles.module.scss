@@ -1,26 +1,55 @@
 .main {
-  margin-top: 64px;
-  line-height: 1.6;
+  margin: 4rem auto 0;
+  max-width: 35rem;
+  line-height: 2;
 
-  h1,
   h2 {
-    margin: 4.5rem 0 2.5rem;
+    margin: 3.125rem 0 2.25rem;
     padding-bottom: .5rem;
     border-bottom: 2px solid var(--separator-color);
   }
 
-  h3,
+  h3 {
+    margin: 3.125rem 0 -1rem;
+  }
+
   h4 {
-    margin: 4rem 0 2rem;
+    margin: 2.25rem 0 0;
   }
 
   p {
+    margin: 2.25rem 0;
     font-weight: 300;
+
+    >code {
+      padding: .05rem .5rem .1rem;
+      border-radius: 3px;
+      background-color: #2d2d2d;
+      color: orange
+    }
+
+    @media (prefers-color-scheme: dark) {
+      >code {
+        border: 1px solid var(--separator-color)
+      }
+    }
   }
 
-  summary {
-    cursor: pointer;
-    outline: none;
+  ol,
+  ul {
+    margin: -1.5rem 0 1rem;
+  }
+
+  details {
+    +details {
+      margin-top: 1rem;
+    }
+
+    >summary {
+      display: inline-block;
+      cursor: pointer;
+      outline: none;
+    }
   }
 
   blockquote {
@@ -33,7 +62,8 @@
     }
   }
 
-  pre {
+  >pre {
+    margin: 2.25rem 0 !important;
     border: 1px solid var(--separator-color);
     border-radius: 4px;
   }
@@ -47,10 +77,4 @@
     margin: 4.5rem 0 2.5rem;
     border: 1px solid var(--separator-color);
   }
-}
-
-.footer {
-  display: flex;
-  justify-content: flex-end;
-  margin-top: 2rem;
 }
