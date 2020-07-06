@@ -21,9 +21,9 @@ const Page: NextPage = () => {
         <meta name="description" content={description} />
       </Head>
       <Layout>
-        <h2 className={styles.profileTitle}>Profile</h2>
+        <h2 className={styles.profileTitle}>Author</h2>
         <Profile />
-        <h2 className={styles.skillsTitle}>Skills</h2>
+        <h3 className={styles.skillsTitle}>Skills</h3>
         <div className={styles.skills}>
           <SkillCard src="/assets/react.svg" alt="React" />
           <SkillCard src="/assets/angular.svg" alt="Angular" />
