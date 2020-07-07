@@ -25,14 +25,30 @@ const Page: NextPage = () => {
         <Profile />
         <h3 className={styles.skillsTitle}>Skills</h3>
         <div className={styles.skills}>
-          <SkillCard src="/assets/react.svg" alt="React" />
-          <SkillCard src="/assets/angular.svg" alt="Angular" />
-          <SkillCard src="/assets/vue.svg" alt="Vue.js" />
-          <SkillCard src="/assets/typescript.svg" alt="TypeScript" />
-          <SkillCard src="/assets/javascript.svg" alt="JavaScript" />
-          <SkillCard src="/assets/go.svg" alt="Golang" />
-          <SkillCard src="/assets/php.svg" alt="PHP" />
-          <SkillCard src="/assets/laravel.svg" alt="Laravel" />
+          <SkillCard src="/assets/react.svg" alt="React" level="ﾁｮｯﾄﾃﾞｷﾙ(嘘)" />
+          <SkillCard
+            src="/assets/angular.svg"
+            alt="Angular"
+            level="完全に理解した"
+          />
+          <SkillCard src="/assets/vue.svg" alt="Vue.js" level="ふつう" />
+          <SkillCard
+            src="/assets/typescript.svg"
+            alt="TypeScript"
+            level="型パズル初心者です"
+          />
+          <SkillCard
+            src="/assets/javascript.svg"
+            alt="JavaScript"
+            level="6年くらい"
+          />
+          <SkillCard src="/assets/go.svg" alt="Golang" level="Goはいいぞ。" />
+          <SkillCard src="/assets/php.svg" alt="PHP" level="4年くらい" />
+          <SkillCard
+            src="/assets/laravel.svg"
+            alt="Laravel"
+            level="半年くらい"
+          />
         </div>
       </Layout>
     </>
