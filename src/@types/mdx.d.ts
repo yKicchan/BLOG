@@ -49,10 +49,5 @@ declare module '*.mdx' {
     path: string
   }
 
-  export interface Post {
-    MDXComponent
-    metadata
-  }
-
-  export default Post
+  export default MDXComponent
 }
