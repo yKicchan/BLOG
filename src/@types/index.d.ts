@@ -1,1 +1,1 @@
-import './mdx'
+import './mdx.d.ts'
