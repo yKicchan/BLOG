@@ -1,8 +1,58 @@
-.component {
-  display: inline-flex;
-  align-items: center;
-  padding: 1rem !important;
+@mixin anime($type) {
+  animation: $type .3s ease forwards;
+}
+
+.wrapper {
+  position: relative;
+  display: inline-block;
   width: 11rem;
+  height: calc(48px + 2rem);
+
+  &.true {
+    .front {
+      @include anime(in);
+    }
+
+    .back {
+      @include anime(out);
+    }
+  }
+
+  &.false {
+    .front {
+      @include anime(out);
+    }
+
+    .back {
+      @include anime(in);
+    }
+  }
+}
+
+.front,
+.back {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: 0;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  padding: 1rem;
+}
+
+.back {
+  padding: 0;
+}
+
+.front {
+  .img {
+    width: 44px;
+    height: 44px;
+  }
 
   dd {
     margin-left: 8px;
@@ -11,7 +61,42 @@
   }
 }
 
-.img {
-  width: 44px;
-  height: 44px;
+@keyframes out {
+  0% {
+    opacity: 1;
+    transform: rotateY(0deg);
+  }
+
+  50% {
+    opacity: 1;
+    transform: rotateY(90deg);
+  }
+
+  51% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes in {
+  0% {
+    opacity: 0;
+  }
+
+  50% {
+    opacity: 0;
+    transform: rotateY(90deg);
+  }
+
+  51% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 1;
+    transform: rotateY(0deg);
+  }
 }
