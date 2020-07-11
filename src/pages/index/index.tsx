@@ -46,7 +46,7 @@ export const getStaticProps: GetStaticProps<P> = async () => {
   const metaList = await getAllMetadata()
   return {
     props: {
-      metaList,
+      metaList: metaList.reverse(),
     },
   }
 }
