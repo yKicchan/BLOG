@@ -1,7 +1,6 @@
 import { NextPage, GetStaticProps } from 'next'
 import Head from 'next/head'
 import React from 'react'
-import Layout from '~/components/layouts/Default'
 import { getAllMetadata } from '~/utils/posts'
 import Post from '~/components/organisms/Post'
 import OGP from '~/components/ogp'
@@ -12,7 +11,7 @@ interface P {
   metaList: Metadata[]
 }
 
-const Page: NextPage<P> = ({ metaList }) => {
+const Index: NextPage<P> = ({ metaList }) => {
   const latestMeta = metaList[0]
   const title = "yKicchan's blog"
   const description = `Web エンジニアが気ままにアウトプットしてる技術ブログ。\n${
@@ -32,15 +31,13 @@ const Page: NextPage<P> = ({ metaList }) => {
         <title>{title}</title>
         <meta name="description" content={description} />
       </Head>
-      <Layout>
-        <ul className={styles.posts}>
-          {metaList.map((meta) => (
-            <li key={meta.path}>
-              <Post meta={meta} />
-            </li>
-          ))}
-        </ul>
-      </Layout>
+      <ul className={styles.posts}>
+        {metaList.map((meta) => (
+          <li key={meta.path}>
+            <Post meta={meta} />
+          </li>
+        ))}
+      </ul>
     </>
   )
 }
@@ -54,4 +51,4 @@ export const getStaticProps: GetStaticProps<P> = async () => {
   }
 }
 
-export default Page
+export default Index

@@ -1,4 +1,4 @@
-import Content from '~/components/organisms/Content'
+import Layout from '~/components/layouts/Post'
 
 export const meta = {
   title: 'ブログ始めました。',
@@ -8,7 +8,7 @@ export const meta = {
   tags: ['Next.js', 'TypeScript', 'MDX', 'Amplify', 'Neumorphism'],
 }
 
-export default ({ children }) => <Content meta={meta}>{children}</Content>
+export default ({ children }) => <Layout meta={meta}>{children}</Layout>
 
 2 年前くらいから勉強も兼ねてブログ作って知見書き出したいなぁと思っていたのですが、ようやく重い腰をあげ公開することができました。  
 何かチャレンジした結果や、Tips など細々とアウトプットしていこうと思ってます。
