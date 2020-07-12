@@ -22,7 +22,7 @@ GAS で bot 作る時にふと npm に公開されてる便利なライブラリ
 
 ## 説明しないこと
 
-GAS + clasp の使い方など基本的なところは割愛するので、知らない人は [@fruitriin](https://twitter.com/FruitRiin) さんの [Google App Script(GAS)をローカルで快適に編集して同期しよう！](https://qiita.com/fruitriin/items/62120f102d50dce5c51a) を参考にどうぞ。  
+GAS + clasp の使い方など基本的なところは割愛するので、知らない人は [@FruitRiin](https://twitter.com/FruitRiin) さんの [Google App Script(GAS)をローカルで快適に編集して同期しよう！](https://qiita.com/fruitriin/items/62120f102d50dce5c51a) を参考にどうぞ。  
 
 ## 解説
 
@@ -43,20 +43,7 @@ clasp を導入して GAS と連携できるようにする
 
 ```bash
 # (グローバルでもよい)
-$ yarn add @google/clasp
-```
-
-下記の設定をしてコマンドを使えるようにしておく。  
-(もちろんグローバルに入れたらいらない)
-
-```json
-// package.json
-{
-  // 省略
-  "scripts": {
-    "clasp": "clasp"
-  }
-}
+$ yarn add -D @google/clasp
 ```
 
 GAS にプロジェクト作成
@@ -286,7 +273,6 @@ module.exports = {
 {
   // 省略
   "scripts": {
-    "clasp": "clasp",
     "build": "webpack",
     "deploy": "yarn build && clasp push",
     "lint": "eslint --fix --ext .ts,.js --ignore-path .gitignore ."
@@ -294,7 +280,7 @@ module.exports = {
 }
 ```
 
-上記のように一発でビルド&デプロイできるようにした
+今回は上記のように一発でビルド&デプロイできるようにした
 
 ```bash
 $ yarn deploy
