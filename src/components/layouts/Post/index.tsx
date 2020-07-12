@@ -1,6 +1,5 @@
 import React from 'react'
 import Head from 'next/head'
-import Layout from '~/components/layouts/Default'
 import styles from './styles.module.scss'
 import { Metadata } from '*.mdx'
 import Header from './Header'
@@ -11,12 +10,12 @@ interface P {
   meta: Metadata
 }
 
-const Content: React.FC<P> = ({ meta, children }) => {
+const Post: React.FC<P> = ({ meta, children }) => {
   const title = `${meta.title} | yKicchan's blog`
   const description = `${meta.excerpt}\n${meta.tags.join(', ')}`
 
   return (
-    <Layout>
+    <>
       <OGP meta={{ title, description, path: meta.path }} />
       <Head>
         <title>{title}</title>
@@ -26,7 +25,7 @@ const Content: React.FC<P> = ({ meta, children }) => {
       <Header meta={meta} />
       <main className={styles.main}>{children}</main>
       <Footer />
-    </Layout>
+    </>
   )
 }
-export default Content
+export default Post

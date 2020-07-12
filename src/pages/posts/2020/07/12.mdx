@@ -1,0 +1,375 @@
+import Layout from '~/components/layouts/Post'
+
+export const meta = {
+  title: 'GAS でも npm のライブラリを使いたい',
+  excerpt: 'GAS で bot 作る時にふと npm に公開されてる便利なライブラリ達を使えたら便利だなと思い至ったのでやってみた話',
+  createdAt: '2020-07-12',
+  tags: ['GAS', 'TypeScript', 'npm', 'webpack', 'babel', 'clasp'],
+}
+
+export default ({ children }) => <Layout meta={meta}>{children}</Layout>
+
+GAS で bot 作る時にふと npm に公開されてる便利なライブラリ達を使えたら便利だなと思い至ったのでやってみた話
+
+## 構成
+
+- 実行環境: GAS
+- 使用言語: TypeScript
+- ビルドツール: webpack + babel
+- デプロイツール: clasp
+
+今回作ったサンプルは[こちら](https://github.com/yKicchan/SLACK_APP_GAS_TS_SAMPLE)。
+
+## 説明しないこと
+
+GAS + clasp の使い方など基本的なところは割愛するので、知らない人は [@fruitriin](https://twitter.com/FruitRiin) さんの [Google App Script(GAS)をローカルで快適に編集して同期しよう！](https://qiita.com/fruitriin/items/62120f102d50dce5c51a) を参考にどうぞ。  
+
+## 解説
+
+スーパーエンジニアのみなさんは構成で完全に理解した思うが、webpack + babel でビルドしたものを clasp を使って GAS にぶち上げているだけ。  
+
+### 1. プロジェクトの準備
+
+ディレクトリ作成、npm の初期化
+
+```bash
+$ mkdir MyBot
+$ cd MyBot
+$ yarn init
+$ mkdir src dist
+```
+
+clasp を導入して GAS と連携できるようにする
+
+```bash
+# (グローバルでもよい)
+$ yarn add @google/clasp
+```
+
+下記の設定をしてコマンドを使えるようにしておく。  
+(もちろんグローバルに入れたらいらない)
+
+```json
+// package.json
+{
+  // 省略
+  "scripts": {
+    "clasp": "clasp"
+  }
+}
+```
+
+GAS にプロジェクト作成
+
+```bash
+$ yarn clasp login
+$ yarn clasp create
+
+# 既にあるプロジェクトを使うなら
+$ yarn clasp clone
+```
+
+ビルド成果物(`dist`)を GAS に `push` したいので、設定を書き換える
+
+```json
+// .clasp.json
+{
+  "scriptId": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+  "rootDir": "./dist"  // ←追記
+}
+```
+
+```bash
+$ mv appsscript.json dist
+```
+
+下記のような構成になる
+
+```bash
+.
+├── .clasp.json
+├── dist/
+│   └── appsscript.json
+├── node_modules/
+├── package.json
+└── src/
+```
+
+### 2. 必要なモジュール類のインストール
+
+```bash
+# TypeScript は義務、 GAS 特有の関数など補完が効いてとても楽
+$ yarn add -D typescript @types/google-apps-script
+
+# ビルド用に webpack と babel 入れる
+$ yarn add -D webpack webpack-cli
+$ yarn add -D @babel/core @babel/preset-typescript babel-loader
+
+# 後ほど説明するが、作成した関数を GAS で実行可能にするために必要なプラグイン
+$ yarn add -D gas-webpack-plugin
+
+# eslint や prettie もお好みで入れる
+$ yarn add -D eslint prettier eslint-config-prettier eslint-plugin-prettier eslint-loader
+
+# 今回は dayjs を使った Bot を動かしてみるのでいれた
+$ yarn add -D dayjs
+```
+
+ちなみに[サンプル](https://github.com/yKicchan/SLACK_APP_GAS_TS_SAMPLE)では`tsconfig.json`と`.eslintrc.json`は下記のようにした
+
+<details>
+<summary>tsconfig.json</summary>
+
+```json
+{
+  "compilerOptions": {
+    "target": "es5",
+    "lib": [
+      "es5",
+      "es6",
+      "es7",
+    ],
+    "outDir": "./dist",
+    "rootDir": "./src",
+    "module": "esnext",
+    "downlevelIteration": true,
+    "strict": true,
+    "noUnusedLocals": true,
+    "esModuleInterop": true,
+    "moduleResolution": "node"
+  },
+  "include": ["./src/**/*"]
+}
+```
+
+</details>
+
+
+<details>
+<summary>.eslintrc.json</summary>
+
+```json
+{
+  "extends": [
+    "eslint:recommended",
+    "plugin:@typescript-eslint/recommended",
+    "plugin:@typescript-eslint/eslint-recommended",
+    "plugin:prettier/recommended",
+    "prettier/@typescript-eslint"
+  ],
+  "plugins": ["@typescript-eslint"],
+  "parser": "@typescript-eslint/parser",
+  "env": {
+    "node": true,
+    "es6": true
+  },
+  "parserOptions": {
+    "sourceType": "module"
+  },
+  "rules": {}
+}
+```
+
+</details>
+
+### 3. 動かしたいスクリプトを書く
+
+[サンプル](https://github.com/yKicchan/SLACK_APP_GAS_TS_SAMPLE)では Slack の Slash command で発火する Bot (Slack App) として作成した。  
+もちろん GAS で動くだけなので Slack App 以外の用途でも使える。  
+今回の内容としては `dayjs` を使って、現在時刻をコメントするシンプルなものとした。  
+
+```ts
+// src/main.ts
+import dayjs from "dayjs";
+import "dayjs/locale/ja";
+
+dayjs.locale("ja");
+
+export function doPost(): GoogleAppsScript.Content.TextOutput {
+  const text = dayjs().format("YYYY年M月D日(ddd) H:m");
+
+  const data: SlackData = {
+    text,
+    response_type: "ephemeral",
+  };
+
+  return ContentService.createTextOutput(JSON.stringify(data)).setMimeType(
+    ContentService.MimeType.JSON
+  );
+}
+
+interface SlackData {
+  text: string;
+  response_type: "ephemeral" | "in_chanel";
+}
+```
+
+GAS で実行可能な関数は、トップレベルな関数だけなので、`index.ts` を用意し、実行対象(サンプルでは`doPost`)を `global` に登録する。  
+こうしておくと `gas-webpack-plugin` が `global` に登録した関数を GAS で実行可能なようにトップレベルに配置してくれる。  
+詳しくは [gas-webpack-plugin](https://github.com/fossamagna/gas-webpack-plugin) 参照。
+
+```ts
+// src/index.ts
+import { doPost } from "./main";
+
+declare const global: {
+  [x: string]: unknown;
+};
+
+global.doPost = doPost;
+```
+
+サンプルには無いが、GAS 上で実行選択させたくないような関数(共通処理や可読性のためにロジックを分離したような関数)は、ここに登録しなければ GAS 上で実行不可にできる。
+
+### 4. webpack と babel の設定
+
+babel はひとまず TypeScript のトランスパイルの設定を入れた
+
+```json
+// .babelrc
+{
+  "presets": [
+    "@babel/preset-typescript"
+  ]
+}
+```
+
+webpack に gas-webpack-plugin と、babel を設定する。  
+ついでに `eslint-loader` で、babel のトランスパイル実行前にコードチェックしている。
+
+```js
+// webpack.config.js
+/* eslint-disable @typescript-eslint/no-var-requires */
+const path = require("path");
+const GasPlugin = require("gas-webpack-plugin");
+
+module.exports = {
+  mode: "development",
+  devtool: false,
+  context: __dirname,
+  entry: "./src/index.ts",
+  output: {
+    path: path.join(__dirname, "dist"),
+    filename: "index.js",
+  },
+  resolve: {
+    extensions: [".ts", ".js"],
+  },
+  module: {
+    rules: [
+      {
+        test: /\.[tj]s$/,
+        exclude: /node_modules/,
+        loader: "babel-loader",
+      },
+      {
+        enforce: "pre",
+        test: /\.[tj]s$/,
+        exclude: /node_modules/,
+        loader: "eslint-loader",
+      },
+    ],
+  },
+  plugins: [new GasPlugin()],
+};
+```
+
+注意点としては、出力を小さくしようと**`mode: "production"`にすると動かない**ので`mode: "development"`としておくこと。  
+関数名などが簡略化され、`gas-webpack-plugin`が`global`に登録された関数をトップレベルに配置できない。
+
+### 5. ビルドして clasp で デプロイ
+
+コマンドを適当に npm scripts に設定する。  
+
+```json
+// package.json
+{
+  // 省略
+  "scripts": {
+    "clasp": "clasp",
+    "build": "webpack",
+    "deploy": "yarn build && clasp push",
+    "lint": "eslint --fix --ext .ts,.js --ignore-path .gitignore ."
+  }
+}
+```
+
+上記のように一発でビルド&デプロイできるようにした
+
+```bash
+$ yarn deploy
+```
+
+GAS のプロジェクトを確認したら webpack + babel でビルドされたものがデプロイされている！！
+
+```bash
+$ yarn clasp open
+```
+
+後は実行ボタンを押すなり、トリガーを設定するなり、Slack App に登録するなりで動かすことができるようになった！！
+
+## 小さなメリット
+
+npm に公開されているライブラリが利用できる(node_modules をGASにぶち上げる必要がない)ことは言わずもがなであるが、
+ライブラリを利用しないシーンでも実は小さなメリットがある。
+
+そもそも clasp は TypeScript に対応しており、webpack + babel を用意しなくともトランスパイルされる。  
+しかし `import` 文が複数行に展開されている場合や、`import` の仕方によってはエラーとなる罠がある。
+
+clasp push 前のローカルのコード
+```ts
+import * as hoge from './hoge.ts'
+import {
+  fuga,
+  bar
+} from './hoge.ts'
+
+function main() {
+  hoge.foo()
+  fuga()
+  bar()
+}
+```
+
+clasp push 後の GAS 上のコード
+```ts
+// import * as hoge from './hoge.ts'
+// import {
+  fuga,  ← 構文エラー
+  bar
+} from './hoge.ts'
+
+function main() {
+  hoge.foo()  ← hoge が宣言されていないのでエラー
+  fuga()
+  bar()
+}
+```
+
+複数のオブジェクトや関数を `import` する場合 `*` が使えないため展開する必要があるが、
+量が多いと改行できない兼ね合いから可読性が極端に落ちたり、lint や prettier の設定次第では自動で改行されてしまい対応追われるウザさがある(実体験)
+
+上記のような clasp 特有の罠を回避するためだけに webpack + babel をわざわざ導入するのは億劫ではあるが、
+一度設定してしまえば他のプロジェクトにも使いまわせるので、毎度 clasp の挙動に気をつけるより圧倒的に分があると思う。
+
+## 後書き
+
+実際に私はこの構成を業務でちょっとした Bot を作って運用しているが、テストコードも書いたりしているため下記のように `src` 下に `app` と `tests` を切るようにしている。
+
+```bash
+.
+├── .babelrc
+├── .clasp.json
+├── .git/
+├── .gitignore
+├── dist/
+│   └── appsscript.json
+├── jest.config.js
+├── node_modules/
+├── package.json
+├── tsconfig.json
+├── webpack.config.js
+└── src/
+    ├── app/   # ← 実行するスクリプト群
+    └── tests/  # ← テストコード群
+```
