@@ -64,6 +64,7 @@ GAS にプロジェクト作成
 ```bash
 $ yarn clasp login
 $ yarn clasp create
+
 # 既にあるプロジェクトを使うなら
 $ yarn clasp clone
 ```
@@ -104,13 +105,13 @@ $ yarn add -D typescript @types/google-apps-script
 $ yarn add -D webpack webpack-cli
 $ yarn add -D @babel/core @babel/preset-typescript babel-loader
 
-# 後ほど説明するが、GAS で作成した関数を実行可能にするために必要なプラグイン
+# 後ほど説明するが、作成した関数を GAS で実行可能にするために必要なプラグイン
 $ yarn add -D gas-webpack-plugin
 
-# eslint や prettie もお好みで入れる(※tslint は deprecated)
+# eslint や prettie もお好みで入れる
 $ yarn add -D eslint prettier eslint-config-prettier eslint-plugin-prettier eslint-loader
 
-# 今回は dayjs を使って Bot を動かしてみるのでいれた
+# 今回は dayjs を使った Bot を動かしてみるのでいれた
 $ yarn add -D dayjs
 ```
 
@@ -353,21 +354,22 @@ function main() {
 
 ## 後書き
 
-実際に私はこの構成を業務でちょっとした Bot を作って運用しているが、テストコードも書いたりしているため下記のように `src` 下に `app` と `test` を切るようにした。
+実際に私はこの構成を業務でちょっとした Bot を作って運用しているが、テストコードも書いたりしているため下記のように `src` 下に `app` と `tests` を切るようにしている。
 
 ```bash
 .
+├── .babelrc
 ├── .clasp.json
+├── .git/
+├── .gitignore
 ├── dist/
 │   └── appsscript.json
+├── jest.config.js
 ├── node_modules/
 ├── package.json
+├── tsconfig.json
+├── webpack.config.js
 └── src/
     ├── app/   # ← 実行するスクリプト群
-    └── test/  # ← テストコード群
+    └── tests/  # ← テストコード群
 ```
-
-(テストに慣れていなくてもちょっとしたスクリプトに対してテストを書けるので、程よい練習にもなると思う)  
-デプロイしてから実行ボタンを押して挙動確認するのは時間がかかるので、保守も考えて是非テストコードを書こう！  
-
-テスト書かないとライオンが襲ってくるぞ。
