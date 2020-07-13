@@ -1,0 +1,10 @@
+import Layout from '~/components/layouts/Post'
+
+export const meta = {
+  title: 'タイトル',
+  excerpt: '内容の要約',
+  createdAt: '',
+  tags: [],
+}
+
+export default ({ children }) => <Layout meta={meta}>{children}</Layout>
