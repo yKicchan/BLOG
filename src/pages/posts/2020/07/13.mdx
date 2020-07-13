@@ -1,0 +1,193 @@
+import Layout from '~/components/layouts/Post'
+
+export const meta = {
+  title: 'docker-compose.yml を環境ごとに分割する',
+  excerpt: 'prod と stg と dev とかで大部分は同じだけど ﾁｮｯﾄﾁｶﾞｳ ところだけ分割したいときとかに有用な技',
+  createdAt: '2020-07-13',
+  tags: ['Docker Compose', 'Docker'],
+}
+
+export default ({ children }) => <Layout meta={meta}>{children}</Layout>
+
+## 前提
+
+Compose ファイルフォーマットバーション 3.x
+
+## 結論
+
+`-f` オプションを使う
+
+```bash
+$ docker-compose -f docker-compose.yml -f docker-compose.prod.yml up -d
+```
+
+または環境変数を使う: `COMPOSE_FILE`, `COMPOSE_PATH_SEPARATOR`
+
+```bash
+$ export COMPOSE_PATH_SEPARATOR=:
+$ export COMPOSE_FILE=docker-compose.yml:docker-compose.prod.yml
+$ docker-compose up -d
+```
+
+[ファイル間、プロジェクト間での Compose 設定の共有 — Docker-docs-ja 17.06 ドキュメント](http://docs.docker.jp/compose/extends.html)
+
+## 注意
+
+- `extends` キーワードは 2.1 までのサポートで、(2020年7月現在)ではご利用いただけません🙅‍♀️
+- `COMPOSE_FILE`の区切り文字はOSによって異なるので`COMPOSE_PATH_SEPARATOR`を明示的に指定しておくと無難
+- `-f`オプションではなく環境変数を使う場合は他プロジェクトに影響するかもしれないのでそこは注意
+
+## Makefile と合わせて使う
+
+簡単な例としてベースとなるファイルと、環境用のファイルをそれぞれ用意した。
+
+```yml
+# docker-compose.yml
+version: "3"
+volumes:
+  app-node_modules:
+  app-dist:
+services:
+  app:
+    build: ./app
+    container_name: app
+    volumes:
+      - ./app/src:/usr/app
+      - app-node_modules:/usr/app/node_modules
+      - app-dist:/usr/app/dist
+```
+
+```yml
+# docker-compose.prod.yml
+version: "3"
+services:
+  app:
+    ports:
+      - 80:80
+    environment:
+      PRODUCTION: 'true'
+```
+
+```yml
+# docker-compose.local.yml
+version: "3"
+services:
+  app:
+    ports:
+      - 8080:80
+    environment:
+      DEBUG: 'true'
+```
+
+これらを環境によって切り替えるための Makefile を作る  
+ここでは環境変数を使って docker-compose の上書きを想定した
+
+```Makefile
+# 本番では make [cmd] e=prod とする
+
+# local or prod
+ENV=local
+
+pre:
+ifdef e
+ENV=${e}
+endif
+
+set-env := export ENV=$(ENV) ;\
+           export COMPOSE_PATH_SEPARATOR=: ;\
+           export COMPOSE_FILE=docker-compose.yml:docker-compose.$(ENV).yml
+
+up: pre
+    $(set-env)\
+    docker-compose up -d
+
+down: pre
+    $(set-env)\
+    docker-compose down
+
+rebuild: pre
+    $(set-env)\
+    docker-compose build --no-cache
+```
+
+上記の設定で環境ごとにコマンドで切り替えられるようになった👏
+
+```bash
+# ローカル開発
+$ make rebuild
+$ make up
+$ make down
+
+# 本番環境
+$ make rebuild e=prod
+$ make up e=prod
+$ make down e=prod
+```
+
+これは簡単な例だが、実際にはより多くの設定になるため、多くの冗長な設定から解放されて幸せになれる❤️  
+Makefile がないとメンテナンス性も開発体験も落ちるので、嫌がらずに開発序盤から用意しよう🤗
+
+## 結合時の挙動について
+
+1つの値を持つオプションか、複数の値を持つオプションかで挙動が変わってくる  
+以下公式より引用: [設定の追加と上書き — Docker-docs-ja 17.06 ドキュメント](http://docs.docker.jp/compose/extends.html#adding-and-overriding-configuration)
+
+> 1 つの値しか持たないオプション、たとえば image、command、mem_limit のようなものは、古い値が新しい値に置き換えられます。
+
+```yml
+# docker-compose.yml
+command: python app.py
+
+# docker-compose.prod.yml
+command: python otherapp.py
+
+# docker-compose -f docker-compose.yml -f docker-compose.prod.yml up -d
+command: python otherapp.py
+
+# 後に書いた方が適応される
+```
+
+> 複数の値を持つオプション、つまり ports、 expose、 external_links、 dns、 dns_search、 tmpfs では、両者の設定をつなぎ合わせます。
+
+```yml
+# docker-compose.yml
+expose:
+  - "3000"
+
+# docker-compose.prod.yml
+expose:
+  - "4000"
+  - "5000"
+
+# docker-compose -f docker-compose.yml -f docker-compose.prod.yml up -d
+expose:
+  - "3000"
+  - "4000"
+  - "5000"
+
+# 両者適応される
+```
+
+> environment、 labels、 volumes、 devices の場合、Compose は設定内容を "マージ" して、ローカル定義の値が優先するようにします。
+
+```yml
+# docker-compose.yml
+environment:
+  - FOO=original
+  - BAR=original
+
+# docker-compose.prod.yml
+environment:
+  - BAR=local
+  - BAZ=local
+
+# docker-compose -f docker-compose.yml -f docker-compose.prod.yml up -d
+environment:
+  - FOO=original
+  - BAR=local
+  - BAZ=local
+
+# 競合してたら後に書いた方が優先され、競合してないものは適応される
+```
+
+💸 Compose ファイルのご利用は計画的に💸
