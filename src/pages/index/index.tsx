@@ -1,14 +1,14 @@
 import { NextPage, GetStaticProps } from 'next'
 import Head from 'next/head'
 import React from 'react'
-import { getAllMetadata } from '~/utils/posts'
+import { getAllPosts } from '~/utils/posts'
 import Post from '~/components/organisms/Post'
 import OGP from '~/components/ogp'
-import { Metadata } from '*.mdx'
 import styles from './styles.module.scss'
+import { Meta } from '~/@types/meta'
 
 interface P {
-  metaList: Metadata[]
+  metaList: Meta[]
 }
 
 const Index: NextPage<P> = ({ metaList }) => {
@@ -33,7 +33,7 @@ const Index: NextPage<P> = ({ metaList }) => {
       </Head>
       <ul className={styles.posts}>
         {metaList.map((meta) => (
-          <li key={meta.path}>
+          <li key={meta.id}>
             <Post meta={meta} />
           </li>
         ))}
@@ -43,10 +43,10 @@ const Index: NextPage<P> = ({ metaList }) => {
 }
 
 export const getStaticProps: GetStaticProps<P> = async () => {
-  const metaList = await getAllMetadata()
+  const posts = await getAllPosts()
   return {
     props: {
-      metaList: metaList.reverse(),
+      metaList: posts.map((post) => post.meta),
     },
   }
 }

@@ -1,8 +1,11 @@
 {
   "cSpell.words": [
-    "yKicchan's",
     "Laravel",
-    "mixins"
+    "darcula",
+    "fontawesome",
+    "fortawesome",
+    "mixins",
+    "yKicchan's"
   ],
   "editor.codeActionsOnSave": {
     "source.fixAll.eslint": true

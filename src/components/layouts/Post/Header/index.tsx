@@ -1,11 +1,11 @@
 import React from 'react'
-import { Metadata } from '*.mdx'
 import styles from './styles.module.scss'
 import Card from '~/components/atoms/Card'
 import Tag from '~/components/atoms/Tag'
+import { Meta } from '~/@types/meta'
 
 interface P {
-  meta: Metadata
+  meta: Meta
 }
 
 const Header: React.FC<P> = ({ meta }) => {

@@ -1,23 +1,31 @@
-import { Metadata } from '*.mdx'
 import glob from 'glob'
+import fs from 'fs'
+import { join } from 'path'
+import matter from 'gray-matter'
+import { Meta } from '~/@types/meta'
 
-export async function getAllMetadata(): Promise<Metadata[]> {
-  const pattern = 'src/pages/posts/**/*.mdx'
-  const files = glob.sync(pattern)
-  const mdxDocs = Promise.all(
-    files.map((f) => import('../' + f.substring(f.indexOf('pages'))))
-  )
-  const metaList = (await mdxDocs).map((mdx, i) => ({
-    ...mdx.meta,
-    path: toPostPath(files[i]),
-  }))
-  return metaList
+const pattern = join(process.cwd(), 'posts/**/*.md')
+const files = glob.sync(pattern)
+
+export function getAllPosts() {
+  const posts = files.map((file) => {
+    const id = file
+      .substring(file.indexOf('posts/'))
+      .replace('posts/', '')
+      .replace(/\//g, '-')
+      .replace(/\.md$/, '')
+    return getPost(id)
+  })
+  return posts.reverse()
 }
 
-function toPostPath(file: string) {
-  return subExt(file.substring(file.indexOf('/posts')))
-}
-
-function subExt(file: string) {
-  return file.substring(0, file.indexOf('.') || file.length)
+export function getPost(id: string): { meta: Meta; body: string } {
+  const filePath = id.replace(/-/g, '/')
+  const path = join(process.cwd(), 'posts', `${filePath}.md`)
+  const contents = fs.readFileSync(path, 'utf8')
+  const { data, content } = matter(contents)
+  return {
+    meta: { ...data, id } as Meta,
+    body: content,
+  }
 }
