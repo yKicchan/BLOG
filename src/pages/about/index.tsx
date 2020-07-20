@@ -7,7 +7,7 @@ import Head from 'next/head'
 import OGP from '~/components/ogp'
 
 const Page: NextPage = () => {
-  const title = "About | yKicchan's blog"
+  const title = "About - yKicchan's blog"
   const description =
     'Web engineer.\n主な生息地は大阪。\n声優の花澤香菜さんの大ファンで、たまにイベントに出没してます。\n宗教上の理由により JavaScript を卒業し、TypeScript がメイン武器。'
   const path = '/about'

@@ -1,18 +1,18 @@
 import React from 'react'
 import Link from 'next/link'
 import styles from './styles.module.scss'
-import { Metadata } from '*.mdx'
 import Tag from '~/components/atoms/Tag'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import Card from '~/components/atoms/Card'
+import { Meta } from '~/@types/meta'
 
 interface P {
-  meta: Metadata
+  meta: Meta
 }
 
 const Post: React.FC<P> = ({ meta }) => {
   return (
-    <Link href={meta.path}>
+    <Link href={`/posts/${meta.id}`}>
       <a className={styles.link} aria-label={meta.title}>
         <Card tag="article" className={styles.component}>
           <h2 className={styles.title}>{meta.title}</h2>
