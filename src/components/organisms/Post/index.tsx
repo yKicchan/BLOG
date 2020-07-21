@@ -12,7 +12,7 @@ interface P {
 
 const Post: React.FC<P> = ({ meta }) => {
   return (
-    <Link href={`/posts/${meta.id}`}>
+    <Link href="/posts/[id]" as={`/posts/${meta.id}`}>
       <a className={styles.link} aria-label={meta.title}>
         <Card tag="article" className={styles.component}>
           <h2 className={styles.title}>{meta.title}</h2>
