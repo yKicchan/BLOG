@@ -1,4 +1,7 @@
 # yKicchan's blog
+<!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
+[![All Contributors](https://img.shields.io/badge/all_contributors-1-orange.svg?style=flat-square)](#contributors-)
+<!-- ALL-CONTRIBUTORS-BADGE:END -->
 
 This repository using Next.js.
 
@@ -17,6 +20,18 @@ This project is licensed under the MIT License - see the [LICENSE.md](./LICENSE.
 ## Contributors ✨
 
 Thanks to these wonderful people ([emoji key](https://allcontributors.org/docs/en/emoji-key)):
+<!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
+<!-- prettier-ignore-start -->
+<!-- markdownlint-disable -->
+<table>
+  <tr>
+    <td align="center"><a href="https://meilcli.net"><img src="https://avatars2.githubusercontent.com/u/2821921?v=4" width="100px;" alt=""/><br /><sub><b>meil</b></sub></a><br /><a href="#maintenance-MeilCli" title="Maintenance">🚧</a></td>
+  </tr>
+</table>
+
+<!-- markdownlint-enable -->
+<!-- prettier-ignore-end -->
+<!-- ALL-CONTRIBUTORS-LIST:END -->
 
 <!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
 <!-- prettier-ignore-start -->
