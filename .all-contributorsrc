@@ -1,0 +1,25 @@
+{
+  "files": [
+    "README.md"
+  ],
+  "imageSize": 100,
+  "commit": false,
+  "contributors": [
+    {
+      "login": "yKicchan",
+      "name": "Yukiya Murata",
+      "avatar_url": "https://avatars2.githubusercontent.com/u/27273218?v=4",
+      "profile": "https://www.ykicchan.dev",
+      "contributions": [
+        "code",
+        "content"
+      ]
+    }
+  ],
+  "contributorsPerLine": 7,
+  "projectName": "BLOG",
+  "projectOwner": "yKicchan",
+  "repoType": "github",
+  "repoHost": "https://github.com",
+  "skipCi": true
+}
