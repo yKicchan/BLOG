@@ -37,7 +37,17 @@
       "contributions": [
         "doc"
       ]
+    },
+    {
+      "login": "MeilCli",
+      "name": "meil",
+      "avatar_url": "https://avatars2.githubusercontent.com/u/2821921?v=4",
+      "profile": "https://meilcli.net",
+      "contributions": [
+        "maintenance"
+      ]
     }
   ],
-  "contributorsPerLine": 7
+  "contributorsPerLine": 7,
+  "skipCi": true
 }

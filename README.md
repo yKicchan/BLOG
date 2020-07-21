@@ -1,6 +1,6 @@
 # yKicchan's blog
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
-[![All Contributors](https://img.shields.io/badge/all_contributors-3-orange.svg?style=flat-square)](#contributors-)
+[![All Contributors](https://img.shields.io/badge/all_contributors-4-orange.svg?style=flat-square)](#contributors-)
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 
 This repository using Next.js.
@@ -25,9 +25,10 @@ Thanks to these wonderful people ([emoji key](https://allcontributors.org/docs/e
 <!-- markdownlint-disable -->
 <table>
   <tr>
-    <td align="center"><a href="https://www.ykicchan.dev/"><img src="https://avatars2.githubusercontent.com/u/27273218?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Yukiya Murata</b></sub></a><br /><a href="https://github.com/yKicchan/BLOG/commits?author=yKicchan" title="Code">💻</a> <a href="#content-yKicchan" title="Content">🖋</a></td>
-    <td align="center"><a href="https://twitter.com/konojunya"><img src="https://avatars1.githubusercontent.com/u/12035578?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Junya Kono</b></sub></a><br /><a href="https://github.com/yKicchan/BLOG/commits?author=konojunya" title="Code">💻</a></td>
-    <td align="center"><a href="https://ria0130.dev/"><img src="https://avatars2.githubusercontent.com/u/11747541?v=4?s=100" width="100px;" alt=""/><br /><sub><b>ria</b></sub></a><br /><a href="https://github.com/yKicchan/BLOG/commits?author=ria3100" title="Documentation">📖</a></td>
+    <td align="center"><a href="https://www.ykicchan.dev/"><img src="https://avatars2.githubusercontent.com/u/27273218?v=4" width="100px;" alt=""/><br /><sub><b>Yukiya Murata</b></sub></a><br /><a href="https://github.com/yKicchan/BLOG/commits?author=yKicchan" title="Code">💻</a> <a href="#content-yKicchan" title="Content">🖋</a></td>
+    <td align="center"><a href="https://twitter.com/konojunya"><img src="https://avatars1.githubusercontent.com/u/12035578?v=4" width="100px;" alt=""/><br /><sub><b>Junya Kono</b></sub></a><br /><a href="https://github.com/yKicchan/BLOG/commits?author=konojunya" title="Code">💻</a></td>
+    <td align="center"><a href="https://ria0130.dev/"><img src="https://avatars2.githubusercontent.com/u/11747541?v=4" width="100px;" alt=""/><br /><sub><b>ria</b></sub></a><br /><a href="https://github.com/yKicchan/BLOG/commits?author=ria3100" title="Documentation">📖</a></td>
+    <td align="center"><a href="https://meilcli.net"><img src="https://avatars2.githubusercontent.com/u/2821921?v=4" width="100px;" alt=""/><br /><sub><b>meil</b></sub></a><br /><a href="#maintenance-MeilCli" title="Maintenance">🚧</a></td>
   </tr>
 </table>
 
