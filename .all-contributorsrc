@@ -1,0 +1,24 @@
+{
+  "files": [
+    "README.md"
+  ],
+  "imageSize": 100,
+  "commit": false,
+  "contributors": [
+    {
+      "login": "MeilCli",
+      "name": "meil",
+      "avatar_url": "https://avatars2.githubusercontent.com/u/2821921?v=4",
+      "profile": "https://meilcli.net",
+      "contributions": [
+        "maintenance"
+      ]
+    }
+  ],
+  "contributorsPerLine": 7,
+  "projectName": "BLOG",
+  "projectOwner": "yKicchan",
+  "repoType": "github",
+  "repoHost": "https://github.com",
+  "skipCi": true
+}
