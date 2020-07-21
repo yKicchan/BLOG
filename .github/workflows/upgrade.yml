@@ -1,0 +1,26 @@
+name: Upgrade
+
+on:
+  workflow_dispatch:
+
+jobs:
+  upgrade:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v1
+        with:
+          node-version: 12
+      - run: yarn install
+      - run: yarn upgrade
+      # in peter-evans/create-pull-request@v2, using github-actions' token
+      # if PullRequest that created by github-actions, do not check CI
+      # so, check to build in this statement
+      - run: yarn run build
+      - name: Create Pull Request
+        uses: peter-evans/create-pull-request@v2
+        with:
+          commit-message: 'yarn upgrade'
+          title: 'Update dependencies'
+          reviewers: 'yKicchan'
+          branch: 'update/dependencies'
