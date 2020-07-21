@@ -24,7 +24,7 @@
     "react-dom": "^16.13.1",
     "react-markdown": "^4.3.1",
     "react-syntax-highlighter": "^12.2.1",
-    "sass": "^1.26.9"
+    "sass": "^1.26.10"
   },
   "devDependencies": {
     "@types/node": "^14.0.14",
