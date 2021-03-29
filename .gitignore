@@ -9,12 +9,11 @@ public/workbox-*
 node_modules
 
 # secret
-.env
 .env.local
-.env.development
-.env.production
+.env.development.local
+.env.production.local
 
-#amplify
+# amplify
 amplify/\#current-cloud-backend
 amplify/.config/local-*
 amplify/mock-data
