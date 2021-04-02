@@ -7,7 +7,7 @@
 }
 
 .imageWrapper {
-  margin: -3rem 0 0 1rem;
+  margin: -5rem 0 0 2rem;
   padding: 1rem;
   border-radius: 50%;
   width: 10rem;
@@ -28,7 +28,7 @@
 }
 
 .content {
-  padding: 1.5rem;
+  padding: 1.5rem 3rem;
   display: flex;
   justify-content: space-between;
 }
@@ -48,12 +48,15 @@
 }
 
 .bio {
-  margin-left: 2rem;
+  margin: 0 0 0 2rem;
   line-height: 2;
-  font-weight: 300;
 }
 
 @media screen and (max-width: 480px) {
+  .imageWrapper {
+    margin: -5rem auto 0;
+  }
+
   .content {
     flex-direction: column;
   }
