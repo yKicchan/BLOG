@@ -1,14 +1,18 @@
+@import '~/styles/mixins';
+
 .component {
+  @include NeumoBox();
   position: relative;
   display: inline-block;
   width: 44px;
   height: 44px;
   border-radius: 50%;
-  box-shadow: var(--shadow);
-  border: 1px solid var(--box-border-color);
+  background: transparent;
+  outline: none;
+  color: var(--color);
 
-  +.component {
-    margin-left: 1rem;
+  &:active {
+    @include NeumoBoxInset();
   }
 }
 
@@ -20,5 +24,4 @@
   transform: translate(-50%, -50%);
   width: 1rem;
   height: 1rem;
-  color: var(--color);
 }

@@ -30,12 +30,3 @@ body {
   display: flex;
   flex-direction: column;
 }
-
-
-a {
-  color: #FF6666;
-}
-
-a:visited {
-  color: #CC7777;
-}

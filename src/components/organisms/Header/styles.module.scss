@@ -29,4 +29,8 @@
 
 .icons {
   margin-left: auto;
+
+  > :last-child {
+    margin-left: 1rem;
+  }
 }

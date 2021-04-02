@@ -3,6 +3,9 @@ import React from 'react'
 import Layout from '~/components/layouts/Post'
 import { getAllPosts, getPost } from '~/utils/posts'
 import { ParsedUrlQuery } from 'node:querystring'
+import ReactMarkdown from 'react-markdown/with-html'
+import CodeBlock from '~/components/atoms/CodeBlock'
+import styles from './styles.module.scss'
 
 interface Props {
   post?: Post
@@ -10,7 +13,16 @@ interface Props {
 
 const Post: NextPage<Props> = ({ post }) => {
   if (!post) return null
-  return <Layout {...post} />
+  return (
+    <Layout meta={post.meta}>
+      <ReactMarkdown
+        className={styles.markdown}
+        source={post.body}
+        escapeHtml={false}
+        renderers={{ code: CodeBlock }}
+      />
+    </Layout>
+  )
 }
 
 interface Params extends ParsedUrlQuery {
