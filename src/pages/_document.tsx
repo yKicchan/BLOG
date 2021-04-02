@@ -15,24 +15,6 @@ export default class MyDocument extends Document {
             href="/icons/apple-touch-icon-180x180.png"
           />
           <link rel="icon" type="image/png" href="/icons/icon-192x192.png" />
-          <link
-            rel="preload"
-            href="/fonts/NotoSansJP-Bold.otf"
-            as="font"
-            crossOrigin="anonymous"
-          ></link>
-          <link
-            rel="preload"
-            href="/fonts/NotoSansJP-Light.otf"
-            as="font"
-            crossOrigin="anonymous"
-          ></link>
-          <link
-            rel="preload"
-            href="/fonts/NotoSansJP-Regular.otf"
-            as="font"
-            crossOrigin="anonymous"
-          ></link>
         </Head>
         <body>
           <Main />
