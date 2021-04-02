@@ -4,7 +4,6 @@ import styles from './styles.module.scss'
 import Tag from '~/components/atoms/Tag'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import Card from '~/components/atoms/Card'
-import { Meta } from '~/@types/meta'
 
 interface P {
   meta: Meta

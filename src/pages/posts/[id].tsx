@@ -1,35 +1,34 @@
-import { NextPage } from 'next'
+import { GetStaticPaths, GetStaticProps, NextPage } from 'next'
 import React from 'react'
 import Layout from '~/components/layouts/Post'
 import { getAllPosts, getPost } from '~/utils/posts'
-import { Meta } from '~/@types/meta'
+import { ParsedUrlQuery } from 'node:querystring'
 
-interface P {
-  meta: Meta
-  body: string
+interface Props {
+  post?: Post
 }
 
-const Post: NextPage<P> = ({ body, meta }) => {
-  return <Layout meta={meta} body={body} />
+const Post: NextPage<Props> = ({ post }) => {
+  if (!post) return null
+  return <Layout {...post} />
 }
 
-interface Params {
-  params: {
-    id: string
-  }
+interface Params extends ParsedUrlQuery {
+  id: string
 }
 
-export const getStaticProps = async ({ params }: Params) => {
-  const { meta, body } = getPost(params.id)
+export const getStaticProps: GetStaticProps<Props, Params> = async ({ params }) => {
+  if (!params) return { props: {} }
+
+  const post = getPost(params.id)
   return {
     props: {
-      meta: meta,
-      body: body,
+      post
     },
   }
 }
 
-export const getStaticPaths = async () => {
+export const getStaticPaths: GetStaticPaths<Params> = async () => {
   const posts = getAllPosts()
   const paths = posts.map((post) => ({
     params: { id: post.meta.id },

@@ -2,7 +2,6 @@ import React from 'react'
 import styles from './styles.module.scss'
 import Card from '~/components/atoms/Card'
 import Tag from '~/components/atoms/Tag'
-import { Meta } from '~/@types/meta'
 
 interface P {
   meta: Meta

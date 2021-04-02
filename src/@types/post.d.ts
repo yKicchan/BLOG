@@ -1,4 +1,9 @@
-export declare interface Meta {
+declare interface Post {
+  meta: Meta
+  body: string
+}
+
+declare interface Meta {
   id: string
   title: string
   excerpt: string

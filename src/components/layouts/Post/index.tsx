@@ -4,7 +4,6 @@ import styles from './styles.module.scss'
 import Header from './Header'
 import OGP from '~/components/ogp'
 import Footer from './Footer'
-import { Meta } from '~/@types/meta'
 import ReactMarkdown from 'react-markdown/with-html'
 import CodeBlock from '~/components/atoms/CodeBlock'
 

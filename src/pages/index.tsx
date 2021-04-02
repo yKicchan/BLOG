@@ -5,7 +5,6 @@ import { getAllPosts } from '~/utils/posts'
 import Post from '~/components/organisms/Post'
 import OGP from '~/components/ogp'
 import styles from './styles.module.scss'
-import { Meta } from '~/@types/meta'
 
 interface P {
   metaList: Meta[]
