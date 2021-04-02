@@ -14,11 +14,11 @@ const Profile: React.FC = () => {
           <h4 className={styles.job}>Web engineer</h4>
         </div>
         <p className={styles.bio}>
-          主な生息地は大阪。
+          主な生息地は関西。
           <br />
           声優の花澤香菜さんの大ファンで、たまにイベントに出没してます。
           <br />
-          宗教上の理由により JavaScript を卒業し、TypeScript がメイン武器。
+          宗教上の理由により JavaScript を卒業し、現在は TypeScript がメイン武器。
         </p>
       </main>
     </Card>

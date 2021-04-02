@@ -4,18 +4,31 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { IconProp } from '@fortawesome/fontawesome-svg-core'
 
 interface P {
-  href: string
+  href?: string
+  onClick?: () => void
   icon: IconProp
   label: string
+  className?: string
 }
 
-const Icon: React.FC<P> = ({ icon, href, label }) => {
+const Icon: React.FC<P> = ({ icon, href, label, onClick, className }) => {
+  const style = `${styles.component} ${className || ''}`
+  if (href) {
+    return (
+      <a aria-label={label} href={href} className={style} target='_blank'>
+        <span className={styles.iconWrapper}>
+          <FontAwesomeIcon icon={icon} />
+        </span>
+      </a>
+    )
+  }
+
   return (
-    <a aria-label={label} href={href} className={styles.component}>
+    <button aria-label={label} className={style} onClick={onClick}>
       <span className={styles.iconWrapper}>
         <FontAwesomeIcon icon={icon} />
       </span>
-    </a>
+    </button>
   )
 }
 

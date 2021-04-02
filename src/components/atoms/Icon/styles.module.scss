@@ -5,11 +5,14 @@
   position: relative;
   display: inline-block;
   width: 44px;
+  min-width: 44px;
   height: 44px;
+  min-height: 44px;
   border-radius: 50%;
   background: transparent;
   outline: none;
   color: var(--color);
+  cursor: pointer;
 
   &:active {
     @include NeumoBoxInset();
@@ -17,11 +20,13 @@
 }
 
 .iconWrapper {
-  display: inline-block;
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
   width: 1rem;
   height: 1rem;
 }

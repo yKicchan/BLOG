@@ -1,7 +1,8 @@
-.component {
-  display: flex;
-  align-items: center;
+@import '~/styles/mixins';
 
+.component {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
   margin: 0 auto;
   padding: 2rem;
   width: 100%;
@@ -9,28 +10,94 @@
   min-height: min-content;
 }
 
-.links {
+.title {
+  grid-column: 2;
   display: flex;
-  margin: 0;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.5rem;
+  font-weight: bold;
+  text-decoration: none;
+  letter-spacing: 0.25em;
+  color: var(--color);
+}
+
+.menu {
+  margin-left: auto;
+}
+
+.menuContainer {
+  @include NeumoBoxInset();
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 2rem;
+  background: var(--bg-color);
+  z-index: 10;
+}
+
+.nav {
+  display: flex;
+  flex-direction: column;
+  margin: auto;
+  max-width: 46rem;
+  height: 100%;
+}
+
+.links {
+  display: block;
+  margin: 3rem 0 0;
   padding: 0;
   list-style: none;
 
-  li+li {
-    margin-left: 1rem;
-  }
+  .link {
+    + .link {
+      border-top: 1px solid var(--separator-color);
+    }
 
-  a,
-  a:visited {
-    color: var(--color);
-    text-decoration: none;
-    font-weight: bold;
+    > a {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 2rem 0;
+      color: var(--color);
+      text-decoration: none;
+      font-weight: bold;
+      letter-spacing: .15em;
+    }
   }
 }
 
-.icons {
-  margin-left: auto;
+.social {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: auto;
 
-  > :last-child {
-    margin-left: 1rem;
+  .socialLink + .socialLink {
+    margin-left: 2.5rem;
+  }
+}
+
+@media screen and (max-height: 767px) and (orientation: landscape) {
+  .nav {
+    justify-content: space-between;
+  }
+
+  .links {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    margin-top: 0;
+
+    .link + .link {
+      border-top: none;
+      border-left: 1px solid var(--separator-color);
+    }
+  }
+
+  .social {
+    margin-top: 0;
   }
 }

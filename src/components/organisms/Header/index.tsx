@@ -1,37 +1,63 @@
-import React from 'react'
+import React, { useState } from 'react'
 import styles from './styles.module.scss'
 import Link from 'next/link'
 import Icon from '../../atoms/Icon'
 
 const Header: React.FC = () => {
+  const [isShow, setIsShow] = useState(false)
+
   return (
     <header className={styles.component}>
-      <nav>
-        <ul className={styles.links}>
-          <li>
-            <Link href="/">
-              <a>Top</a>
-            </Link>
-          </li>
-          <li>
-            <Link href="/about">
-              <a>About</a>
-            </Link>
-          </li>
-        </ul>
-      </nav>
-      <div className={styles.icons}>
-        <Icon
-          label="Twitter"
-          icon={['fab', 'twitter']}
-          href="https://twitter.com/yKicchan"
-        />
-        <Icon
-          label="GitHub"
-          icon={['fab', 'github']}
-          href="https://github.com/yKicchan"
-        />
-      </div>
+      <Link href="/">
+        <a className={styles.title}>BLOG</a>
+      </Link>
+      {isShow && (
+        <div className={styles.menuContainer}>
+          <nav className={styles.nav}>
+            <Icon
+              icon={['fas', 'times']}
+              label="close"
+              onClick={() => setIsShow(false)}
+              className={styles.menu}
+            />
+            <ul className={styles.links}>
+              <li className={styles.link}>
+                <Link href="/">
+                  <a onClick={() => setIsShow(false)}>TOP</a>
+                </Link>
+              </li>
+              <li className={styles.link}>
+                <Link href="/about">
+                  <a onClick={() => setIsShow(false)}>ABOUT</a>
+                </Link>
+              </li>
+              <li className={styles.link}>
+                <a href="https://github.com/yKicchan/BLOG/blob/master/LICENSE.md" target='_blank'>LICENSE</a>
+              </li>
+            </ul>
+            <div className={styles.social}>
+              <Icon
+                icon={['fab', 'twitter']}
+                label="Twitter"
+                href="https://twitter.com/yKicchan"
+                className={styles.socialLink}
+              />
+              <Icon
+                icon={['fab', 'github']}
+                label="GitHub"
+                href="https://github.com/yKicchan"
+                className={styles.socialLink}
+              />
+            </div>
+          </nav>
+        </div>
+      )}
+      <Icon
+        label="Menu"
+        icon={['fas', 'bars']}
+        onClick={() => setIsShow(true)}
+        className={styles.menu}
+      />
     </header>
   )
 }

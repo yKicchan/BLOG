@@ -6,6 +6,8 @@
   --separator-color: #D0D0D0;
   --shadow: 4px 4px 8px rgba(165, 160, 160, 0.7), -4px -4px 8px rgba(255, 255, 255, .7);
   --shadow-inset: inset 3px 3px 5px rgba(209, 205, 199, .7), inset -3px -3px 7px rgba(255, 255, 255, .7);
+
+  --link-color: #bd3434;
 }
 
 @media (prefers-color-scheme: dark) {

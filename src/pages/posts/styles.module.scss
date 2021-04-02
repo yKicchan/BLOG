@@ -86,7 +86,7 @@
   }
 
   a {
-    color: #bd3434;
+    color: var(--link-color);
 
     &:visited {
       opacity: .6;

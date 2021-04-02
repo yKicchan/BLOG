@@ -1,18 +1,48 @@
-.profileTitle {
-  margin: 0 auto 8rem;
-  padding-bottom: 1rem;
-  border-bottom: 2px solid var(--separator-color);
-  max-width: 50rem;
+.section + .section {
+  margin-top: 8rem;
+
+  &:last-child {
+    margin-bottom: 2rem;
+  }
 }
 
+.sectionTitle {
+  margin: 0 auto 3rem;
+  padding-bottom: 1rem;
+  border-bottom: 2px solid var(--separator-color);
+  letter-spacing: .1em;
+}
+
+.description {
+  line-height: 2;
+}
+
+.link {
+  color: var(--link-color);
+}
+
+.profileTitle {
+  margin-bottom: 8rem;
+}
+
+.socialTitle,
 .skillsTitle {
   margin: 6rem auto 2rem;
-  max-width: 50rem;
+  letter-spacing: .1em;
+}
+
+.social {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .socialLink + .socialLink {
+    margin-left: 2.5rem;
+  }
 }
 
 .skills {
-  margin: 0 auto 4rem;
-  max-width: 50rem;
+  margin: 0 auto;
   text-align: center;
 
   >dl,
