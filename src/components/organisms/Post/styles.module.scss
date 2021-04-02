@@ -1,4 +1,14 @@
+@import '~/styles/mixins';
+
 .component {
+  &:active {
+    @include NeumoBoxInset();
+
+    .tag {
+      @include NeumoBox();
+    }
+  }
+
   h2 {
     margin: 0 0 .8rem;
     font-size: 1.325rem;
