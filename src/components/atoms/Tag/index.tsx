@@ -2,7 +2,7 @@ import React from 'react'
 import styles from './styles.module.scss'
 
 interface P {
-  className: string
+  className?: string
 }
 
 const Tag: React.FC<P> = ({ children, className }) => {
