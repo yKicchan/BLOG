@@ -17,7 +17,7 @@ const Icon: React.FC<P> = ({ icon, href, label, onClick, className }) => {
     return (
       <a aria-label={label} href={href} className={style} target='_blank'>
         <span className={styles.iconWrapper}>
-          <FontAwesomeIcon icon={icon} />
+          <FontAwesomeIcon icon={icon} className={styles.svg} />
         </span>
       </a>
     )
@@ -26,7 +26,7 @@ const Icon: React.FC<P> = ({ icon, href, label, onClick, className }) => {
   return (
     <button aria-label={label} className={style} onClick={onClick}>
       <span className={styles.iconWrapper}>
-        <FontAwesomeIcon icon={icon} />
+        <FontAwesomeIcon icon={icon} className={styles.svg} />
       </span>
     </button>
   )
