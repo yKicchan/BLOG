@@ -1,27 +1,25 @@
+@import '~/styles/mixins';
+
 .component {
   margin: 0 auto;
-  max-width: 50rem;
   text-align: center;
 }
 
+.title {
+  font-size: 1.75rem;
+}
+
 .time {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   font-size: .9rem;
 }
 
-.note {
-  font-size: .8em;
-  color: var(--gray);
-  padding-left: .5rem;
-
-  &::before {
-    content: '(';
-    padding-right: 1px;
-  }
-
-  &::after {
-    content: ')';
-    padding-left: 1px;
-  }
+.timeIcon {
+  margin-right: 2px;
+  width: 1em;
+  height: 1em;
 }
 
 .tags {
@@ -29,4 +27,56 @@
   display: flex;
   justify-content: flex-end;
   flex-wrap: wrap;
+}
+
+.floatHeaderContainer {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  padding: .5rem 1.5rem;
+  z-index: 1;
+  background: var(--bg-color);
+  border-bottom: 1px solid var(--separator-color);
+  font-size: calc(1rem - 2px);
+
+  animation: slideIn .3s linear forwards;
+}
+
+.floatHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: auto;
+  max-width: 46rem;
+}
+
+.floatTitle {
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+
+.floatButton {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: .5rem;
+  padding: .55rem;
+  border: none;
+  width: 2rem;
+  height: 2rem;
+  background: transparent;
+  color: var(--color);
+  cursor: pointer;
+  outline: none;
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateY(-100%);
+  }
+  to {
+    transform: translateY(0);
+  }
 }
