@@ -35,20 +35,6 @@ const Header: React.FC = () => {
                 <a href="https://github.com/yKicchan/BLOG/blob/master/LICENSE.md" target='_blank'>LICENSE</a>
               </li>
             </ul>
-            <div className={styles.social}>
-              <Icon
-                icon={['fab', 'twitter']}
-                label="Twitter"
-                href="https://twitter.com/yKicchan"
-                className={styles.socialLink}
-              />
-              <Icon
-                icon={['fab', 'github']}
-                label="GitHub"
-                href="https://github.com/yKicchan"
-                className={styles.socialLink}
-              />
-            </div>
           </nav>
         </div>
       )}
