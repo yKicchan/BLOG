@@ -72,8 +72,19 @@
       text-decoration: none;
       font-weight: bold;
       letter-spacing: .15em;
+
+      &[target] {
+        padding-left: 1em;
+      }
     }
   }
+}
+
+.external {
+  margin-left: .25em;
+  padding-bottom: 2px;
+  width: 1em;
+  height: 1em;
 }
 
 @media screen and (max-height: 767px) and (orientation: landscape) {

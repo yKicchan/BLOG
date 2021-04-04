@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import styles from './styles.module.scss'
 import Link from 'next/link'
 import Icon from '../../atoms/Icon'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 const Header: React.FC = () => {
   const [isShow, setIsShow] = useState(false)
@@ -32,7 +33,13 @@ const Header: React.FC = () => {
                 </Link>
               </li>
               <li className={styles.link}>
-                <a href="https://github.com/yKicchan/BLOG/blob/master/LICENSE.md" target='_blank'>LICENSE</a>
+                <a
+                  href="https://github.com/yKicchan/BLOG/blob/master/LICENSE.md"
+                  target="_blank"
+                >
+                  LICENSE
+                  <FontAwesomeIcon icon={['fas', 'external-link-alt']} className={styles.external}/>
+                </a>
               </li>
             </ul>
           </nav>
