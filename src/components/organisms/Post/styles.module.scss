@@ -1,9 +1,18 @@
+@import '~/styles/mixins';
+
 .component {
+  &:active {
+    @include NeumoBoxInset();
+
+    .tag {
+      @include NeumoBox();
+    }
+  }
+
   h2 {
     margin: 0 0 .8rem;
     font-size: 1.325rem;
     line-height: 1.6;
-    text-decoration: underline;
   }
 
   time {
@@ -24,7 +33,6 @@
 .link:visited {
   display: block;
   margin: 0 auto;
-  max-width: 50rem;
 
   color: var(--color);
   text-decoration: none;

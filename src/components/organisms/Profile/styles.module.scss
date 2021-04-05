@@ -3,11 +3,10 @@
   flex-direction: column;
   margin: 0 auto;
   padding: 0 !important;
-  max-width: 50rem;
 }
 
 .imageWrapper {
-  margin: -3rem 0 0 1rem;
+  margin: -5rem 0 0 2rem;
   padding: 1rem;
   border-radius: 50%;
   width: 10rem;
@@ -28,32 +27,32 @@
 }
 
 .content {
-  padding: 1.5rem;
+  padding: 2rem 3rem;
   display: flex;
   justify-content: space-between;
 }
 
-.name,
-.job {
-  margin: 0 0 1rem;
-}
-
 .name {
+  margin: 0 0 1rem;
   font-size: 2rem;
 }
 
 .job {
+  margin: 0 0 1.5rem;
   font-size: 1.25rem;
   color: var(--gray);
 }
 
 .bio {
-  margin-left: 2rem;
+  margin: 0 0 0 1.5rem;
   line-height: 2;
-  font-weight: 300;
 }
 
 @media screen and (max-width: 480px) {
+  .imageWrapper {
+    margin: -5rem auto 0;
+  }
+
   .content {
     flex-direction: column;
   }

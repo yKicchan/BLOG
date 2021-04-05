@@ -4,7 +4,6 @@ import styles from './styles.module.scss'
 import Tag from '~/components/atoms/Tag'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import Card from '~/components/atoms/Card'
-import { Meta } from '~/@types/meta'
 
 interface P {
   meta: Meta
@@ -25,7 +24,7 @@ const Post: React.FC<P> = ({ meta }) => {
           <p>{meta.excerpt}</p>
           <div className={styles.tags}>
             {meta.tags.map((tag) => (
-              <Tag key={tag}>{tag}</Tag>
+              <Tag className={styles.tag} key={tag}>{tag}</Tag>
             ))}
           </div>
         </Card>
