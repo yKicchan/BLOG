@@ -72,6 +72,11 @@
   outline: none;
 }
 
+.floatIcon {
+  width: 100%;
+  height: 100%;
+}
+
 @keyframes slideIn {
   from {
     transform: translateY(-100%);

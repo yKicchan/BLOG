@@ -42,7 +42,7 @@ const Header: React.FC<P> = ({ meta }) => {
               {meta.title}
             </div>
             <button className={styles.floatButton}>
-              <FontAwesomeIcon icon={['fas', 'angle-down']} />
+              <FontAwesomeIcon icon={['fas', 'angle-down']} className={styles.floatIcon} />
             </button>
           </div>
         </header>
