@@ -14,6 +14,22 @@ const Footer: React.FC<P> = ({ meta }) => {
     setUrl(location.href)
   })
 
+  const [isShareable, setIsShareable] = useState(false)
+  useEffect(() => {
+    setIsShareable(!!navigator?.share)
+  })
+  const share = () => {
+    if (!isShareable) return
+    navigator
+      .share({
+        title: shareText,
+        url: url,
+      })
+      .then(() => {
+        console.log('Thanks for sharing!')
+      }).catch(() => {})
+  }
+
   // Todo: いいねの実装
   // const [liked, setLiked] = useState(false)
   // useEffect(() => {
@@ -29,12 +45,16 @@ const Footer: React.FC<P> = ({ meta }) => {
 
   return (
     <footer className={styles.footer}>
-      <Icon
-        icon={['fab', 'twitter']}
-        label="twitter"
-        href={`http://twitter.com/share?url=${url}&text=${shareText}&via=yKicchan`}
-        className={styles.twitter}
-      />
+      {isShareable ? (
+        <Icon icon={['fas', 'share-alt']} label="Share" onClick={share} />
+      ) : (
+        <Icon
+          icon={['fab', 'twitter']}
+          label="twitter"
+          href={`http://twitter.com/share?url=${url}&text=${shareText}&via=yKicchan`}
+          className={styles.twitter}
+        />
+      )}
       {/*<Icon*/}
       {/*  icon={[liked ? 'fas' : 'far', 'heart']}*/}
       {/*  label="like"*/}
