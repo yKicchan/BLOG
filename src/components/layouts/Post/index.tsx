@@ -1,15 +1,17 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Head from 'next/head'
 import styles from './styles.module.scss'
 import Header from './Header'
 import OGP from '~/components/ogp'
 import Footer from './Footer'
+import LatestPosts from '~/components/layouts/Post/LatestPosts'
 
 interface P {
   meta: Meta
+  latestMetaList: Meta[]
 }
 
-const Post: React.FC<P> = ({ meta, children }) => {
+const Post: React.FC<P> = ({ meta, latestMetaList, children }) => {
   const title = `${meta.title} - yKicchan's blog`
   const description = `${meta.excerpt}\n${meta.tags.join(', ')}`
   const path = `/posts/${meta.id}`
@@ -26,6 +28,7 @@ const Post: React.FC<P> = ({ meta, children }) => {
         {children}
       </main>
       <Footer meta={meta} />
+      <LatestPosts metaList={latestMetaList} />
     </>
   )
 }
