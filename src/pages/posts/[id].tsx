@@ -9,12 +9,13 @@ import styles from './styles.module.scss'
 
 interface Props {
   post?: Post
+  latestMetaList?: Meta[]
 }
 
-const Post: NextPage<Props> = ({ post }) => {
-  if (!post) return null
+const Post: NextPage<Props> = ({ post, latestMetaList }) => {
+  if (!post || !latestMetaList) return null
   return (
-    <Layout meta={post.meta}>
+    <Layout meta={post.meta} latestMetaList={latestMetaList}>
       <ReactMarkdown
         className={styles.markdown}
         source={post.body}
@@ -29,13 +30,21 @@ interface Params extends ParsedUrlQuery {
   id: string
 }
 
-export const getStaticProps: GetStaticProps<Props, Params> = async ({ params }) => {
+export const getStaticProps: GetStaticProps<Props, Params> = async ({
+  params,
+}) => {
   if (!params) return { props: {} }
 
   const post = getPost(params.id)
+  const latestMetaList = getAllPosts()
+    .filter((p) => p.meta.id !== params.id)
+    .slice(0, 3)
+    .map((p) => p.meta)
+
   return {
     props: {
-      post
+      post,
+      latestMetaList,
     },
   }
 }

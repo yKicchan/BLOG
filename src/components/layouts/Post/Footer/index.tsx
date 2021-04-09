@@ -45,22 +45,25 @@ const Footer: React.FC<P> = ({ meta }) => {
 
   return (
     <footer className={styles.footer}>
-      {isShareable ? (
-        <Icon icon={['fas', 'share-alt']} label="Share" onClick={share} />
-      ) : (
-        <Icon
-          icon={['fab', 'twitter']}
-          label="twitter"
-          href={`http://twitter.com/share?url=${url}&text=${shareText}&via=yKicchan`}
-          className={styles.twitter}
-        />
-      )}
-      {/*<Icon*/}
-      {/*  icon={[liked ? 'fas' : 'far', 'heart']}*/}
-      {/*  label="like"*/}
-      {/*  onClick={like}*/}
-      {/*  className={styles.like}*/}
-      {/*/>*/}
+      <h2 className={styles.title}>SHARE</h2>
+      <div className={styles.icons}>
+        {isShareable ? (
+          <Icon icon={['fas', 'share-alt']} label="Share" onClick={share} />
+        ) : (
+          <Icon
+            icon={['fab', 'twitter']}
+            label="twitter"
+            href={`http://twitter.com/share?url=${url}&text=${shareText}&via=yKicchan`}
+            className={styles.twitter}
+          />
+        )}
+        {/*<Icon*/}
+        {/*  icon={[liked ? 'fas' : 'far', 'heart']}*/}
+        {/*  label="like"*/}
+        {/*  onClick={like}*/}
+        {/*  className={styles.like}*/}
+        {/*/>*/}
+      </div>
     </footer>
   )
 }
