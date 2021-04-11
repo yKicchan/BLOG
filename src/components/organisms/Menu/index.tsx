@@ -10,14 +10,16 @@ interface P {
 
 const Menu: React.FC<P> = ({ onClose }) => {
   return (
-    <div className={styles.menuContainer}>
-      <nav className={styles.nav}>
+    <div className={styles.component}>
+      <header className={styles.header}>
         <Icon
           icon={['fas', 'times']}
           label="close"
           onClick={onClose}
           className={styles.close}
         />
+      </header>
+      <nav className={styles.nav}>
         <ul className={styles.links}>
           <li className={styles.link}>
             <Link href="/">
