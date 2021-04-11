@@ -1,0 +1,79 @@
+@import 'src/styles/mixins';
+
+.close {
+  margin-left: auto;
+}
+
+.menuContainer {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 2rem;
+  background: var(--bg-color);
+  z-index: 10;
+  border: 1px solid var(--box-border-color);
+  box-shadow: inset 4px 4px 8px rgba(165, 160, 160, .7), inset -3px -3px 5px rgb(255, 255, 255);
+}
+
+@media screen and (prefers-color-scheme: dark) {
+  .menuContainer {
+    @include NeumoBoxInset();
+  }
+}
+
+.nav {
+  display: flex;
+  flex-direction: column;
+  margin: auto;
+  max-width: 46rem;
+  height: 100%;
+}
+
+.links {
+  display: block;
+  margin: 3rem 0 0;
+  padding: 0;
+  list-style: none;
+
+  .link {
+    + .link {
+      border-top: 1px solid var(--separator-color);
+    }
+
+    > a {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 2rem 0;
+      color: var(--color);
+      text-decoration: none;
+      font-weight: bold;
+      letter-spacing: .15em;
+
+      &[target] {
+        padding-left: 1em;
+      }
+    }
+  }
+}
+
+.external {
+  margin-left: .25em;
+  padding-bottom: 2px;
+  width: 1em;
+  height: 1em;
+}
+
+@media screen and (max-height: 767px) and (orientation: landscape) {
+  .links {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+
+    .link + .link {
+      border-top: none;
+      border-left: 1px solid var(--separator-color);
+    }
+  }
+}
