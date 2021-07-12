@@ -847,10 +847,10 @@
     lodash "^4.17.19"
     to-fast-properties "^2.0.0"
 
-"@corex/deepmerge@^2.5.6":
-  version "2.5.6"
-  resolved "https://registry.yarnpkg.com/@corex/deepmerge/-/deepmerge-2.5.6.tgz#a5d26c6a0f4df1f65d17871c94f463d5097e349a"
-  integrity sha512-zvClQyrUGV4Hzr2zWnyD/MS0DrNWJ9jMKFLYA/abmsU4dObMuFXhragGqWpWHW6G/ghJpf09E+JumTo5jSb9rg==
+"@corex/deepmerge@^2.6.20":
+  version "2.6.20"
+  resolved "https://registry.yarnpkg.com/@corex/deepmerge/-/deepmerge-2.6.20.tgz#a72d1cb5a101fd11160815b96f499a588362ba5b"
+  integrity sha512-oZZxwDtV0bf8VPcSIhZPvdBFUkVIC8zRblUjrrVAsbGRiqUuZJfoXw2M6NDiIXWcUCfOqbkFND6Yf3b9ej9AjA==
 
 "@eslint/eslintrc@^0.4.0":
   version "0.4.0"
@@ -3345,12 +3345,12 @@ next-pwa@^5.2.9:
     workbox-webpack-plugin "^6.1.2"
     workbox-window "^6.1.2"
 
-next-sitemap@^1.6.25:
-  version "1.6.25"
-  resolved "https://registry.yarnpkg.com/next-sitemap/-/next-sitemap-1.6.25.tgz#bab5694e998e57b9932c57fb6dd95448d55ab88c"
-  integrity sha512-lZ1Mchz0Kwfy9C2kdxlp1FPT1kj6g2EY6+cAuBjmRht+3fbDqLaDaC0z3cYhjvsfmHlshc1FNkZ7Ntq5a8q7tQ==
+next-sitemap@^1.6.133:
+  version "1.6.133"
+  resolved "https://registry.yarnpkg.com/next-sitemap/-/next-sitemap-1.6.133.tgz#6c9d67d2c5722e4f12a28b000c30e89574a866cf"
+  integrity sha512-AG4BIXoVO+Nl0nyIYCuz/Vh7Vtn0BO0Lc8ssr3YWiFQFXqHTdKVHUXNP3ZSekmT32BjcMgWtpyoiEAmpXty0ZA==
   dependencies:
-    "@corex/deepmerge" "^2.5.6"
+    "@corex/deepmerge" "^2.6.20"
     matcher "^4.0.0"
     minimist "^1.2.5"
 
