@@ -18,7 +18,7 @@
     "@fortawesome/react-fontawesome": "^0.1.11",
     "glob": "^7.1.6",
     "gray-matter": "^4.0.2",
-    "next": "^10.0.8",
+    "next": "^11.1.0",
     "next-pwa": "^5.0.6",
     "normalize.css": "^8.0.1",
     "react": "^17.0.1",
