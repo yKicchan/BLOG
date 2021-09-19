@@ -1,11 +1,10 @@
 import { GetStaticPaths, GetStaticProps, NextPage } from 'next'
-import React from 'react'
 import Layout from '~/components/layouts/Post'
 import { getAllPosts, getPost } from '~/utils/posts'
-import { ParsedUrlQuery } from 'node:querystring'
 import ReactMarkdown from 'react-markdown/with-html'
 import CodeBlock from '~/components/atoms/CodeBlock'
 import styles from './styles.module.scss'
+import { ParsedUrlQuery } from 'querystring'
 
 interface Props {
   post?: Post

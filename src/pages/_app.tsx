@@ -1,5 +1,5 @@
 import { AppProps } from 'next/app'
-import React from 'react'
+import { NextPage } from 'next'
 import '~/styles/index.css'
 import Layout from '~/components/layouts/Default'
 
@@ -11,7 +11,7 @@ import { fas } from '@fortawesome/free-solid-svg-icons'
 import { far } from '@fortawesome/free-regular-svg-icons'
 library.add(fab, far, fas)
 
-const App = ({ Component, pageProps }: AppProps) => {
+const App: NextPage<AppProps> = ({ Component, pageProps }) => {
   return (
     <Layout>
       <Component {...pageProps} />

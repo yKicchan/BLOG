@@ -8,38 +8,39 @@
   "scripts": {
     "dev": "next",
     "build": "next build && next export && next-sitemap",
-    "start": "next start"
+    "start": "next start",
+    "lint": "next lint"
   },
   "dependencies": {
-    "@fortawesome/fontawesome-svg-core": "^1.2.30",
-    "@fortawesome/free-brands-svg-icons": "^5.14.0",
-    "@fortawesome/free-regular-svg-icons": "^5.14.0",
+    "@fortawesome/fontawesome-svg-core": "^1.2.35",
+    "@fortawesome/free-brands-svg-icons": "^5.15.3",
+    "@fortawesome/free-regular-svg-icons": "^5.15.3",
     "@fortawesome/free-solid-svg-icons": "^5.15.3",
     "@fortawesome/react-fontawesome": "^0.1.11",
     "glob": "^7.1.6",
     "gray-matter": "^4.0.2",
-    "next": "^10.0.8",
-    "next-pwa": "^5.0.6",
+    "next": "^11.1.2",
+    "next-pwa": "^5.2.9",
     "normalize.css": "^8.0.1",
-    "react": "^17.0.1",
-    "react-dom": "^17.0.1",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
     "react-markdown": "^5.0.3",
     "react-syntax-highlighter": "^15.4.3",
     "sass": "^1.26.10"
   },
   "devDependencies": {
-    "@types/node": "^14.6.0",
+    "@types/node": "^14.14.37",
     "@types/react": "^17.0.3",
-    "@types/react-dom": "^17.0.2",
+    "@types/react-dom": "^17.0.3",
     "@types/react-syntax-highlighter": "^13.5.0",
-    "@typescript-eslint/eslint-plugin": "^4.17.0",
-    "@typescript-eslint/parser": "^4.17.0",
-    "eslint": "^7.7.0",
+    "@typescript-eslint/eslint-plugin": "^4.21.0",
+    "@typescript-eslint/parser": "^4.21.0",
+    "eslint": "^7.24.0",
     "eslint-config-prettier": "^8.1.0",
     "eslint-plugin-prettier": "^3.1.4",
-    "eslint-plugin-react": "^7.20.6",
-    "next-sitemap": "^1.6.9",
+    "eslint-plugin-react": "^7.23.2",
+    "next-sitemap": "^1.6.25",
     "prettier": "^2.1.1",
-    "typescript": "^4.2.3"
+    "typescript": "^4.2.4"
   }
 }
