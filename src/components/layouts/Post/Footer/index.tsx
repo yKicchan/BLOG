@@ -6,7 +6,7 @@ interface P {
   meta: Meta
 }
 
-const Footer: React.FC<P> = ({ meta }) => {
+const Footer: React.FC<P> = () => {
   const [shareText, setShareText] = useState('')
   const [url, setUrl] = useState('')
   useEffect(() => {
@@ -27,7 +27,7 @@ const Footer: React.FC<P> = ({ meta }) => {
       })
       .then(() => {
         console.log('Thanks for sharing!')
-      }).catch(() => {})
+      })
   }
 
   // Todo: いいねの実装

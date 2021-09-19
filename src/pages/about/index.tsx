@@ -1,5 +1,4 @@
 import { NextPage } from 'next'
-import React from 'react'
 import styles from './styles.module.scss'
 import Profile from '~/components/organisms/Profile'
 import SkillCard from '~/components/molecules/SkillCard'
@@ -27,15 +26,16 @@ const Page: NextPage = () => {
           <br />
           <br />
           サイト制作には Next.js + TypeScript をベースとし、SSG 機能を利用。
-          <br/>
+          <br />
           インフラには AWS Amplify を採用し公開しました。
           <br />
-          <br/>
+          <br />
           このサイトの
           <a
             className={styles.link}
             href="https://github.com/yKicchan/BLOG"
             target="_blank"
+            rel="noreferrer"
           >
             ソースコード
           </a>
@@ -83,7 +83,11 @@ const Page: NextPage = () => {
           />
           <SkillCard src="/assets/go.svg" alt="Golang" level="Goはいいぞ。" />
           <SkillCard src="/assets/php.svg" alt="PHP" level="4年くらい" />
-          <SkillCard src="/assets/laravel.svg" alt="Laravel" level="半年くらい" />
+          <SkillCard
+            src="/assets/laravel.svg"
+            alt="Laravel"
+            level="半年くらい"
+          />
         </div>
       </section>
     </>
