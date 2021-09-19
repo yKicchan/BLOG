@@ -1,6 +1,5 @@
 import { NextPage, GetStaticProps } from 'next'
 import Head from 'next/head'
-import React from 'react'
 import { getAllPosts } from '~/utils/posts'
 import Post from '~/components/organisms/Post'
 import OGP from '~/components/ogp'

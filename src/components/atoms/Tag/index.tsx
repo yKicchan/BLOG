@@ -6,7 +6,11 @@ interface P {
 }
 
 const Tag: React.FC<P> = ({ children, className }) => {
-  return <span className={`${styles.component} ${className || ''}`}># {children}</span>
+  return (
+    <span className={`${styles.component} ${className || ''}`}>
+      # {children}
+    </span>
+  )
 }
 
 export default Tag

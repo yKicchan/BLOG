@@ -6,7 +6,11 @@ const Profile: React.FC = () => {
   return (
     <Card className={styles.component}>
       <figure className={styles.imageWrapper}>
-        <img src="/assets/profile.png" alt="profile" />
+        <img
+          className={styles.img}
+          src="/assets/profile.png"
+          alt="profile icon"
+        />
       </figure>
       <main className={styles.content}>
         <div>
@@ -18,7 +22,8 @@ const Profile: React.FC = () => {
           <br />
           声優の花澤香菜さんの大ファンで、たまにイベントに出没してます。
           <br />
-          宗教上の理由により JavaScript を卒業し、現在は TypeScript がメイン武器。
+          宗教上の理由により JavaScript を卒業し、現在は TypeScript
+          がメイン武器。
         </p>
       </main>
     </Card>

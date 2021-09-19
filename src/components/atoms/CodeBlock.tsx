@@ -1,6 +1,6 @@
-import React from "react"
-import { Prism as SyntaxHighlighter } from "react-syntax-highlighter"
-import { darcula } from "react-syntax-highlighter/dist/cjs/styles/prism"
+import React from 'react'
+import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter'
+import { darcula } from 'react-syntax-highlighter/dist/cjs/styles/prism'
 
 interface P {
   value: string

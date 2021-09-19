@@ -1,5 +1,4 @@
 import React from 'react'
-import Head from 'next/head'
 import Header from '~/components/organisms/Header'
 import styles from './styles.module.scss'
 import Footer from '~/components/organisms/Footer'

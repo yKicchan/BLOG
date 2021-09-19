@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React from 'react'
 import Head from 'next/head'
 import styles from './styles.module.scss'
 import Header from './Header'
@@ -24,9 +24,7 @@ const Post: React.FC<P> = ({ meta, latestMetaList, children }) => {
         <meta name="description" content={description} />
       </Head>
       <Header meta={meta} />
-      <main className={styles.main}>
-        {children}
-      </main>
+      <main className={styles.main}>{children}</main>
       <Footer meta={meta} />
       <LatestPosts metaList={latestMetaList} />
     </>

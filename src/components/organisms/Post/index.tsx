@@ -24,7 +24,9 @@ const Post: React.FC<P> = ({ meta }) => {
           <p>{meta.excerpt}</p>
           <div className={styles.tags}>
             {meta.tags.map((tag) => (
-              <Tag className={styles.tag} key={tag}>{tag}</Tag>
+              <Tag className={styles.tag} key={tag}>
+                {tag}
+              </Tag>
             ))}
           </div>
         </Card>
