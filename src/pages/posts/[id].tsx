@@ -59,6 +59,7 @@ export const getStaticProps: GetStaticProps<Props, Params> = async ({
       post: getResponse,
       latestMetaList: listResponse.contents,
     },
+    revalidate: 60,
   }
 }
 

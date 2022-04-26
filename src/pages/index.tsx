@@ -47,6 +47,7 @@ export const getStaticProps: GetStaticProps<P> = async () => {
     props: {
       metaList: res.contents,
     },
+    revalidate: 60,
   }
 }
 
