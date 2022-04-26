@@ -1,11 +1,14 @@
-.markdown{
-  h1, h2, h3, h4 {
+.markdown {
+  h1,
+  h2,
+  h3,
+  h4 {
     line-height: 1.5;
   }
 
   h2 {
     margin: 3.125rem 0 2.25rem;
-    padding-bottom: .5rem;
+    padding-bottom: 0.5rem;
     border-bottom: 2px solid var(--separator-color);
   }
 
@@ -27,14 +30,55 @@
   }
 
   details {
+    display: block;
+    padding: 0;
+    border: 1px solid var(--box-border-color);
+    border-radius: 4px;
+    line-height: 1.5;
+    box-shadow: var(--shadow);
+
     + details {
-      margin-top: 1rem;
+      margin-top: 2rem;
     }
 
     > summary {
-      display: inline-block;
+      display: block;
+      padding: 0.5em 1em;
       cursor: pointer;
       outline: none;
+      position: relative;
+      list-style: none;
+
+      &::marker,
+      &::-webkit-details-marker {
+        display: none;
+      }
+
+      &::after {
+        display: inline-block;
+        content: '';
+        position: absolute;
+        top: 50%;
+        right: 1em;
+        border-top: 0.4em solid var(--color);
+        border-right: 0.3em solid transparent;
+        border-left: 0.3em solid transparent;
+        transform: translateY(-50%);
+      }
+    }
+
+    &[open] > summary {
+      border-bottom: 1px solid var(--box-border-color);
+
+      &::after {
+        border-top: none;
+        border-bottom: 0.4em solid var(--color);
+      }
+    }
+
+    > *:not(summary) {
+      margin: 0;
+      padding: 1em;
     }
   }
 
@@ -43,36 +87,41 @@
     padding-left: 20px;
     border-left: 3px solid gray;
 
-    >p {
+    > p {
       opacity: 0.7;
     }
   }
 
-
   code {
-    padding: .05rem .5rem .1rem;
+    padding: 0.05rem 0.5rem 0.1rem;
     border-radius: 3px;
-    background-color: rgba(0, 0, 0, .05);
-    font-size: .85rem;
+    background-color: rgba(0, 0, 0, 0.05);
+    font-size: 0.85rem;
   }
 
   @media (prefers-color-scheme: dark) {
     code {
       border: 1px solid var(--separator-color);
-      background-color: rgba(255, 255, 255, .05);
+      background-color: rgba(255, 255, 255, 0.05);
     }
   }
 
   > pre {
     margin: 2.25rem 0 !important;
-    border: 1px solid var(--separator-color);
+    border: 1px solid var(--box-border-color);
     border-radius: 4px;
+    overflow: hidden;
 
-    > code {
-      padding: 0;
-      background: none;
-      border: none;
+    > pre {
+      margin: 0 !important;
+      box-shadow: var(--shadow-inset);
     }
+  }
+
+  pre > code {
+    padding: 0;
+    background: none;
+    border: none;
   }
 
   img {
@@ -89,7 +138,7 @@
     color: var(--link-color);
 
     &:visited {
-      opacity: .6;
+      opacity: 0.6;
     }
   }
 }

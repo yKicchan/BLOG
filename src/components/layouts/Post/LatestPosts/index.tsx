@@ -1,6 +1,7 @@
 import React from 'react'
 import styles from './styles.module.scss'
 import Post from '~/components/organisms/Post'
+import { Meta } from '~/libs/api/contents'
 
 interface P {
   metaList: Meta[]

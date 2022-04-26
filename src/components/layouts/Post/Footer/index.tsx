@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import Icon from '~/components/atoms/Icon'
 import styles from './styles.module.scss'
+import { Meta } from '~/libs/api/contents'
 
 interface P {
   meta: Meta
@@ -27,6 +28,9 @@ const Footer: React.FC<P> = () => {
       })
       .then(() => {
         console.log('Thanks for sharing!')
+      })
+      .catch(() => {
+        console.error('Failed share...')
       })
   }
 

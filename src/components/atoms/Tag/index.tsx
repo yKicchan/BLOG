@@ -2,6 +2,7 @@ import React from 'react'
 import styles from './styles.module.scss'
 
 interface P {
+  children: React.ReactNode
   className?: string
 }
 

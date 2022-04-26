@@ -7,6 +7,8 @@ import {
   FontAwesomeIcon,
   FontAwesomeIconProps,
 } from '@fortawesome/react-fontawesome'
+import { Meta } from '~/libs/api/contents'
+import { format } from 'date-fns'
 
 interface P {
   meta: Meta
@@ -15,13 +17,14 @@ interface P {
 const Header: React.FC<P> = ({ meta }) => {
   const ref = useRef<HTMLHeadingElement>(null)
   const intersection = useIntersection(ref)
-  const time = meta.updatedAt || meta.createdAt
-  const timeIcon: FontAwesomeIconProps['icon'] = meta.updatedAt
+  const revisedAt = format(new Date(meta.revisedAt), 'yyyy-MM-dd')
+  const publishedAt = format(new Date(meta.publishedAt), 'yyyy-MM-dd')
+  const time = revisedAt
+  const isRevised = meta.revisedAt !== meta.publishedAt
+  const timeIcon: FontAwesomeIconProps['icon'] = isRevised
     ? ['fas', 'sync-alt']
     : ['far', 'clock']
-  const timeTitle = meta.updatedAt
-    ? `公開: ${meta.createdAt}\n更新: ${meta.updatedAt}`
-    : ''
+  const timeTitle = isRevised ? `公開: ${publishedAt}\n更新: ${revisedAt}` : ''
 
   return (
     <>
@@ -35,7 +38,7 @@ const Header: React.FC<P> = ({ meta }) => {
         </p>
         <div className={styles.tags}>
           {meta.tags.map((tag) => (
-            <Tag key={tag}>{tag}</Tag>
+            <Tag key={tag.id}>{tag.name}</Tag>
           ))}
         </div>
       </Card>

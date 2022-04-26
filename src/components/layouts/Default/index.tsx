@@ -4,6 +4,7 @@ import styles from './styles.module.scss'
 import Footer from '~/components/organisms/Footer'
 
 interface P {
+  children: React.ReactNode
   className?: string
 }
 

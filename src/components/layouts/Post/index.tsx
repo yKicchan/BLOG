@@ -5,10 +5,12 @@ import Header from './Header'
 import OGP from '~/components/ogp'
 import Footer from './Footer'
 import LatestPosts from '~/components/layouts/Post/LatestPosts'
+import { Meta } from '~/libs/api/contents'
 
 interface P {
   meta: Meta
   latestMetaList: Meta[]
+  children: React.ReactNode
 }
 
 const Post: React.FC<P> = ({ meta, latestMetaList, children }) => {
