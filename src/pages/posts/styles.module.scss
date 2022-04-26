@@ -1,11 +1,14 @@
-.markdown{
-  h1, h2, h3, h4 {
+.markdown {
+  h1,
+  h2,
+  h3,
+  h4 {
     line-height: 1.5;
   }
 
   h2 {
     margin: 3.125rem 0 2.25rem;
-    padding-bottom: .5rem;
+    padding-bottom: 0.5rem;
     border-bottom: 2px solid var(--separator-color);
   }
 
@@ -43,23 +46,22 @@
     padding-left: 20px;
     border-left: 3px solid gray;
 
-    >p {
+    > p {
       opacity: 0.7;
     }
   }
 
-
   code {
-    padding: .05rem .5rem .1rem;
+    padding: 0.05rem 0.5rem 0.1rem;
     border-radius: 3px;
-    background-color: rgba(0, 0, 0, .05);
-    font-size: .85rem;
+    background-color: rgba(0, 0, 0, 0.05);
+    font-size: 0.85rem;
   }
 
   @media (prefers-color-scheme: dark) {
     code {
       border: 1px solid var(--separator-color);
-      background-color: rgba(255, 255, 255, .05);
+      background-color: rgba(255, 255, 255, 0.05);
     }
   }
 
@@ -67,8 +69,13 @@
     margin: 2.25rem 0 !important;
     border: 1px solid var(--separator-color);
     border-radius: 4px;
+    overflow: hidden;
 
-    > code {
+    > pre {
+      margin: 0 !important;
+    }
+
+    code {
       padding: 0;
       background: none;
       border: none;
@@ -89,7 +96,7 @@
     color: var(--link-color);
 
     &:visited {
-      opacity: .6;
+      opacity: 0.6;
     }
   }
 }
