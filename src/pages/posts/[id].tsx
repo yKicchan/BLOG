@@ -6,6 +6,7 @@ import ReactMarkdown from 'react-markdown'
 import CodeBlock from '~/components/atoms/CodeBlock'
 import styles from './styles.module.scss'
 import contents, { Meta, Post } from '~/libs/api/contents'
+import rehypeRaw from 'rehype-raw'
 
 interface Props {
   post?: Post
@@ -18,6 +19,7 @@ const Post: NextPage<Props> = ({ post, latestMetaList }) => {
     <Layout meta={post} latestMetaList={latestMetaList}>
       <ReactMarkdown
         className={styles.markdown}
+        rehypePlugins={[rehypeRaw]}
         components={{
           code({ inline, className, children, ...props }) {
             const match = /language-(\w+)/.exec(className || '')
