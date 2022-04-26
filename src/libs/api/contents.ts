@@ -48,8 +48,8 @@ export type Meta = Pick<
   tags: Pick<Tag, 'id' | 'name'>[]
 }
 
-interface ListResponse extends PostsResponse {
-  content: Meta[]
+type ListResponse = Omit<PostsResponse, 'contents'> & {
+  contents: Meta[]
 }
 
 export type GetResponse = Pick<
