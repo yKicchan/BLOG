@@ -6,7 +6,11 @@ const Profile: React.FC = () => {
   return (
     <Card className={styles.component}>
       <figure className={styles.imageWrapper}>
-        <img src="/assets/profile.png" alt="profile" />
+        <img
+          className={styles.img}
+          src="/assets/profile.png"
+          alt="profile icon"
+        />
       </figure>
       <main className={styles.content}>
         <div>

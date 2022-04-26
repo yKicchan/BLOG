@@ -1,5 +1,4 @@
 import { GetStaticPaths, GetStaticProps, NextPage } from 'next'
-import React from 'react'
 import Layout from '~/components/layouts/Post'
 import { ParsedUrlQuery } from 'node:querystring'
 import ReactMarkdown from 'react-markdown'

@@ -1,5 +1,4 @@
 import { NextPage } from 'next'
-import React from 'react'
 import styles from './styles.module.scss'
 import Profile from '~/components/organisms/Profile'
 import SkillCard from '~/components/molecules/SkillCard'
