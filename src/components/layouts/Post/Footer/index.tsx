@@ -7,7 +7,7 @@ interface P {
   meta: Meta
 }
 
-const Footer: React.FC<P> = ({ meta }) => {
+const Footer: React.FC<P> = () => {
   const [shareText, setShareText] = useState('')
   const [url, setUrl] = useState('')
   useEffect(() => {
