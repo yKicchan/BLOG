@@ -1,14 +1,16 @@
-import React, { useState } from 'react'
+import React from 'react'
 import Head from 'next/head'
 import styles from './styles.module.scss'
 import Header from './Header'
 import OGP from '~/components/ogp'
 import Footer from './Footer'
 import LatestPosts from '~/components/layouts/Post/LatestPosts'
+import { Meta } from '~/libs/api/contents'
 
 interface P {
   meta: Meta
   latestMetaList: Meta[]
+  children: React.ReactNode
 }
 
 const Post: React.FC<P> = ({ meta, latestMetaList, children }) => {
@@ -24,9 +26,7 @@ const Post: React.FC<P> = ({ meta, latestMetaList, children }) => {
         <meta name="description" content={description} />
       </Head>
       <Header meta={meta} />
-      <main className={styles.main}>
-        {children}
-      </main>
+      <main className={styles.main}>{children}</main>
       <Footer meta={meta} />
       <LatestPosts metaList={latestMetaList} />
     </>

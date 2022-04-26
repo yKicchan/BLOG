@@ -2,7 +2,6 @@ import React, { useState } from 'react'
 import styles from './styles.module.scss'
 import Link from 'next/link'
 import Icon from '../../atoms/Icon'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import Menu from '~/components/organisms/Menu'
 
 const Header: React.FC = () => {
