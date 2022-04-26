@@ -35,6 +35,7 @@ const Menu: React.FC<P> = ({ onClose }) => {
             <a
               href="https://github.com/yKicchan/BLOG/blob/master/LICENSE.md"
               target="_blank"
+              rel="noreferrer"
             >
               LICENSE
               <FontAwesomeIcon

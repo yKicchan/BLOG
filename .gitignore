@@ -10,8 +10,7 @@ node_modules
 
 # secret
 .env.local
-.env.development.local
-.env.production.local
+.env.*.local
 
 # amplify
 amplify/\#current-cloud-backend

@@ -1,10 +1,10 @@
 import { NextPage, GetStaticProps } from 'next'
 import Head from 'next/head'
 import React from 'react'
-import { getAllPosts } from '~/utils/posts'
 import Post from '~/components/organisms/Post'
 import OGP from '~/components/ogp'
 import styles from './styles.module.scss'
+import contents, { Meta } from '~/libs/api/contents'
 
 interface P {
   metaList: Meta[]
@@ -42,11 +42,12 @@ const Index: NextPage<P> = ({ metaList }) => {
 }
 
 export const getStaticProps: GetStaticProps<P> = async () => {
-  const posts = await getAllPosts()
+  const res = await contents.list()
   return {
     props: {
-      metaList: posts.map((post) => post.meta),
+      metaList: res.contents,
     },
+    revalidate: 60,
   }
 }
 

@@ -1,11 +1,12 @@
 import { GetStaticPaths, GetStaticProps, NextPage } from 'next'
 import React from 'react'
 import Layout from '~/components/layouts/Post'
-import { getAllPosts, getPost } from '~/utils/posts'
 import { ParsedUrlQuery } from 'node:querystring'
-import ReactMarkdown from 'react-markdown/with-html'
+import ReactMarkdown from 'react-markdown'
 import CodeBlock from '~/components/atoms/CodeBlock'
 import styles from './styles.module.scss'
+import contents, { Meta, Post } from '~/libs/api/contents'
+import rehypeRaw from 'rehype-raw'
 
 interface Props {
   post?: Post
@@ -15,13 +16,25 @@ interface Props {
 const Post: NextPage<Props> = ({ post, latestMetaList }) => {
   if (!post || !latestMetaList) return null
   return (
-    <Layout meta={post.meta} latestMetaList={latestMetaList}>
+    <Layout meta={post} latestMetaList={latestMetaList}>
       <ReactMarkdown
         className={styles.markdown}
-        source={post.body}
-        escapeHtml={false}
-        renderers={{ code: CodeBlock }}
-      />
+        rehypePlugins={[rehypeRaw]}
+        components={{
+          code({ inline, className, children, ...props }) {
+            const match = /language-(\w+)/.exec(className || '')
+            return !inline && match ? (
+              <CodeBlock language={match[1]}>{children}</CodeBlock>
+            ) : (
+              <code className={className} {...props}>
+                {children}
+              </code>
+            )
+          },
+        }}
+      >
+        {post.body}
+      </ReactMarkdown>
     </Layout>
   )
 }
@@ -35,24 +48,25 @@ export const getStaticProps: GetStaticProps<Props, Params> = async ({
 }) => {
   if (!params) return { props: {} }
 
-  const post = getPost(params.id)
-  const latestMetaList = getAllPosts()
-    .filter((p) => p.meta.id !== params.id)
-    .slice(0, 3)
-    .map((p) => p.meta)
+  const getResponse = await contents.get(params.id)
+  const listResponse = await contents.list({
+    limit: 3,
+    filters: `id[not_equals]${params.id}`,
+  })
 
   return {
     props: {
-      post,
-      latestMetaList,
+      post: getResponse,
+      latestMetaList: listResponse.contents,
     },
+    revalidate: 60,
   }
 }
 
 export const getStaticPaths: GetStaticPaths<Params> = async () => {
-  const posts = getAllPosts()
-  const paths = posts.map((post) => ({
-    params: { id: post.meta.id },
+  const res = await contents.list()
+  const paths = res.contents.map((post) => ({
+    params: { id: post.id },
   }))
 
   return {
