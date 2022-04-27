@@ -14,7 +14,7 @@ const Index: NextPage<P> = ({ metaList }) => {
   const title = "yKicchan's blog"
   const description = `Web エンジニアが気ままにアウトプットしてる技術ブログ。\n${
     latestMeta.title
-  }\n${latestMeta.tags.join(', ')}`
+  }\n${latestMeta.tags.map((tag) => tag.name).join(', ')}`
 
   return (
     <>
