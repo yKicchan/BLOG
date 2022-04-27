@@ -63,14 +63,9 @@ export const getStaticProps: GetStaticProps<Props, Params> = async ({
 }
 
 export const getStaticPaths: GetStaticPaths<Params> = async () => {
-  const res = await contents.list()
-  const paths = res.contents.map((post) => ({
-    params: { id: post.id },
-  }))
-
   return {
-    paths,
-    fallback: false,
+    paths: [],
+    fallback: 'blocking',
   }
 }
 
