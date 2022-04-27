@@ -6,6 +6,7 @@ import CodeBlock from '~/components/atoms/CodeBlock'
 import styles from './styles.module.scss'
 import contents, { Meta, Post } from '~/libs/api/contents'
 import rehypeRaw from 'rehype-raw'
+import remarkGfm from 'remark-gfm'
 
 interface Props {
   post?: Post
@@ -19,6 +20,7 @@ const Post: NextPage<Props> = ({ post, latestMetaList }) => {
       <ReactMarkdown
         className={styles.markdown}
         rehypePlugins={[rehypeRaw]}
+        remarkPlugins={[remarkGfm]}
         components={{
           code({ inline, className, children, ...props }) {
             const match = /language-(\w+)/.exec(className || '')
