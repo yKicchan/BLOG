@@ -15,7 +15,9 @@ interface P {
 
 const Post: React.FC<P> = ({ meta, latestMetaList, children }) => {
   const title = `${meta.title} - yKicchan's blog`
-  const description = `${meta.excerpt}\n${meta.tags.join(', ')}`
+  const description = `${meta.excerpt}\n${meta.tags
+    .map((tag) => tag.name)
+    .join(', ')}`
   const path = `/posts/${meta.id}`
 
   return (
