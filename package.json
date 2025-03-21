@@ -21,7 +21,7 @@
     "@fortawesome/react-fontawesome": "^0.2.2",
     "date-fns": "^4.1.0",
     "microcms-js-sdk": "^3.1.2",
-    "next": "^15.1.6",
+    "next": "^15.2.3",
     "normalize.css": "^8.0.1",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
